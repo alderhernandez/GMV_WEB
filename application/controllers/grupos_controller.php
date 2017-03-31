@@ -15,7 +15,7 @@ class Grupos_controller extends CI_Controller
     {        
         $data['dato'] = $this->grupos_model->getSac();
         $data['data'] = $this->grupos_model->getGrupos();
-        $data['vendedor'] = $this->grupos_model->getVendedores();
+        
         $this->load->view('header/header');
         $this->load->view('pages/menu');
         $this->load->view('pages/grupos/grupos',$data);
@@ -27,5 +27,14 @@ class Grupos_controller extends CI_Controller
         $query = $this->grupos_model->guardarGrupos($_POST['grupo'],$_POST['usuario']);
         redirect('grupos','refresh');
     }
+    public function getVendedoresGrupoAct($idGrupo)
+    {
+        $this->grupos_model->getVendedoresGrupoAct($idGrupo);
+    }
+    public function getVendedoresGrupo($idGrupo)
+    {
+        $this->grupos_model->getVendedoresGrupo($idGrupo);
+    }
+
 }
 ?>

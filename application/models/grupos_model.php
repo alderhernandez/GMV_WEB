@@ -36,13 +36,38 @@ class Grupos_model extends CI_Model
             return $query->result_array();
         }return 0;
     }
-    public function getVendedores(){
-        $this->db->where('Rol',1);
-        $this->db->where('Activo',1);
-        $query = $this->db->get('Usuario');
+    public function getVendedoresGrupoAct($IdGrupo)
+    {
+        $i = 0;
+        $json = array();
+        $query = $this->db->query('SELECT * FROM usuario WHERE Rol ="1" AND ACTIVO = 1 
+                                    AND IdUser NOT IN (SELECT IdVendedor FROM view_GrupoAsignacion WHERE IdGrupo ="'.$IdGrupo.'")');
+            if ($query->num_rows()>0) {
+                foreach ($query->result_array() as $key) {
+                    $json['data'][$i]['IDUSUARIO'] = $key['IdUser'];
+                    $json['data'][$i]['RUTA'] = $key['Usuario'];
+                    $json['data'][$i]['NOMBRE'] = $key['Nombre'];
+                    $i++;
+                }
+            }
+
+        echo json_encode($json);
+    }
+    public function getVendedoresGrupo($IdGrupo)
+    {
+        $i = 0;
+        $json = array();
+        $this->db->where('IdGrupo',$IdGrupo);
+        $query = $this->db->get('view_GrupoAsignacion');
         if ($query->num_rows()>0) {
-            return $query->result_array();
-        }return 0;
+            foreach ($query->result_array() as $key) {
+                $json['data'][$i]['IDUSUARIO'] = $key['IdVendedor'];
+                $json['data'][$i]['IDVENDEDOR'] = $key['IdVendedor'];
+                $json['data'][$i]['NOMBRE'] = $key['Ruta']." ".$key['NombreRuta'];
+                $i++;
+            }
+        }
+        echo json_encode($json);
     }
 }
 ?>

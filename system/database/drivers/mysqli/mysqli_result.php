@@ -128,14 +128,6 @@ class CI_DB_mysqli_result extends CI_DB_result {
 	 *
 	 * @return	void
 	 */
-	function next_result()
-	{
-	  if (is_object($this->conn_id))
-	  {
-	      return mysqli_next_result($this->conn_id);
-	  }
-	}
-
 	public function free_result()
 	{
 		if (is_object($this->result_id))

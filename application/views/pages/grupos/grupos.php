@@ -109,30 +109,25 @@
                 <div class="row">
                     <div class="col s5 m5 l5">
                         <div class="row center"><p>VENDEDORES NO AGREGADOS</p></div>
-                        <div class="row">
+                        <div class="row center">
                             <table id="tbl1" class=" TblDatos">
                                 <thead>
                                     <tr>
-                                        <th>ID GRUPO</th>
+                                        <th>ID USUARIO</th>
                                         <th>RUTA</th>
                                         <th>NOMBRE</th>
                                     </tr>
                                 </thead>
                                 <tbody class="center">
-                                    <?php 
-                                        if (!($vendedor)) {}
-                                        else{
-                                            foreach ($vendedor as $key ) {
-                                                echo "<tr>
-                                                        <td>".$key['IdUser']."</td>
-                                                        <td class='negra'>".$key['Usuario']."</td>
-                                                        <td>".$key['Nombre']."</td>
-                                                </tr>";
-                                            }
-                                        }
-                                    ?>
                                 </tbody>
                             </table>
+                            <div id="loadTabla1" style="display:none" class="preloader-wrapper big active">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left"><div class="circle"></div></div>
+                                    <div class="gap-patch"><div class="circle"></div></div>
+                                    <div class="circle-clipper right"><div class="circle"></div></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col s2 m2 l2">
@@ -157,18 +152,6 @@
                                     </tr>
                                 </thead>
                                 <tbody class="center">
-                                    <?php 
-                                        if (!($vendedor)) {}
-                                        else{
-                                            foreach ($vendedor as $key ) {
-                                                echo "<tr>
-                                                        <td>".$key['IdUser']."</td>
-                                                        <td class='negra'>".$key['Usuario']."</td>
-                                                        <td>".$key['Nombre']."</td>
-                                                </tr>";
-                                            }
-                                        }
-                                    ?>
                                 </tbody>
                             </table>
                             <div id="loadTabla" style="display:none" class="preloader-wrapper big active">

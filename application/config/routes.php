@@ -28,7 +28,8 @@ $route['cobros'] = 'cobros_controller';
 /* GRUPOS */
 $route['grupos'] = 'grupos_controller';
 $route['nuevoGrupo'] = 'grupos_controller/nuevoGrupo';
-$route['getVendedoresGrupo'] = 'grupos_controller/getVendedoresGrupo';
+$route['getVendedoresGrupo/(:any)'] = 'grupos_controller/getVendedoresGrupo/$1';
+$route['getVendedoresGrupoAct/(:any)'] = 'grupos_controller/getVendedoresGrupoAct/$1';
 
 /* CLIENTES */
 $route['Clientes'] = 'clientes_controller/Clientes';

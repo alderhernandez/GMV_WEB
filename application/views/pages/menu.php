@@ -2,24 +2,25 @@
 
     <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
 
-        <header id="MenuFondo" class="demo-drawer-header">
-            <img id="imgUser" src="<?PHP echo base_url();?>assets/img/IMV.png" width="65%" >
-            <div id="user" class="row">
-                <div class="col l2 center carita">
-                  <i class=" material-icons">face</i>
-                </div>
-                <div class="col l10 center">
-                  <span class="Loggen"><?php echo $this->session->userdata('UserN');?></span>
-                </div>
+      <header id="MenuFondo" class="demo-drawer-header">
+          <img id="imgUser" src="<?PHP echo base_url();?>assets/img/logo-sales.png" width="65%" >
+          <div id="user" class="row">
+            <div class="col l2 center carita">
+              <i class=" material-icons">face</i>
             </div>
-        </header>
+            <div class="col l10 center">
+              <span class="Loggen"><?php echo $this->session->userdata('UserN');?></span>
+              </div>
+          </div>
+      </header>
+
        <div id="menu">
            <ul class="nav menu demo-navigation mdl-navigation__link" >
-            <?php 
-
+            <?php
               switch ($this->session->userdata('RolUser')) {
                 case '1':
                   $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inicio</li></a>
+                           <a href="agenda"><li href="agenda"><i class="material-icons">date_range</i> agenda</li></a>                  
                            <a href="pedidos"><li href="pedidos"><i class="material-icons">equalizer</i> pedidos</li></a>
                            <a href="cobros"><li href="cobros"><i class="material-icons">monetization_on</i> cobros</li></a>
                            <a href="grupos"><li href="grupos"><i class="material-icons">view_quilt</i> grupos</li></a>

@@ -13,17 +13,20 @@ $route['cambiarPass'] = 'login_controller/cambiarPass';
 // FIN LOGIN
 
 // RUTAS MENU
-$route['Main'] = 'graficos_controller';
+$route['Main'] = 'main_controller';
 
-// RUTAS GRAFICOS
-$route['GrfmetaVendedores'] = 'graficos_controller/GrfmetaVendedores';
-$route['GrfmetaVendedores2'] = 'graficos_controller/GrfmetaVendedores2';
 
 /* PEDIDOS */
 $route['pedidos'] = 'pedidos_controller';
+$route['detallepedido/(:any)'] = 'pedidos_controller/detallePedido/$1';
+$route['ajaxDetallePedido']='pedidos_controller/cabeceraPedido';
+$route['ajaxPedido/(:any)']='pedidos_controller/DetallePedido/$1';
+$route['ajaxUpdatePedido/(:any)/(:any)']='pedidos_controller/UpdateEstado/$1/$2';
 
 /* COBROS */
 $route['cobros'] = 'cobros_controller';
+$route['searchCobros/(:any)/(:any)']='cobros_controller/searchCobros/$1/$2';
+$route['searchCobros']='cobros_controller/searchCobros';
 
 /* GRUPOS */
 $route['grupos'] = 'grupos_controller';
@@ -37,8 +40,8 @@ $route['Clientes'] = 'clientes_controller/Clientes';
 /*USUARIOS*/
 $route['Usuarios'] = 'usuario_controller'; 
 
-// RUTA FACTURAS
-$route['facturas'] = 'facturas_controller';
+/*USUARIOS*/
+$route['agenda'] = 'agenda_controller'; 
 
 // RUTA REPORTES
 $route['Reportes'] = 'reportes_controller';

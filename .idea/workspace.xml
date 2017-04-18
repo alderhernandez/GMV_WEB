@@ -2,7 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b2eb9f8-f267-47d6-b106-1a5939fda9bd" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/graficos_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/monitoreo_controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/pages/BajaClientes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/pages/Clientes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/pages/PuntosClientes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/pages/Users.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/pages/datos/datos.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/pages/datos/vistaPrevia.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/pages/log/log.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/pages/monitoreo/monitoreo.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/cobros_controller.php" afterPath="$PROJECT_DIR$/application/controllers/cobros_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/pedidos_controller.php" afterPath="$PROJECT_DIR$/application/controllers/pedidos_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/cobros_model.php" afterPath="$PROJECT_DIR$/application/models/cobros_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/pedidos_model.php" afterPath="$PROJECT_DIR$/application/models/pedidos_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/footer/footer.php" afterPath="$PROJECT_DIR$/application/views/footer/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header/header.php" afterPath="$PROJECT_DIR$/application/views/header/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/jsview/js_cobros.php" afterPath="$PROJECT_DIR$/application/views/jsview/js_cobros.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/pages/cobros/cobros.php" afterPath="$PROJECT_DIR$/application/views/pages/cobros/cobros.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/pages/menu.php" afterPath="$PROJECT_DIR$/application/views/pages/menu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/pages/pedidos/pedidos.php" afterPath="$PROJECT_DIR$/application/views/pages/pedidos/pedidos.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/styles.css" afterPath="$PROJECT_DIR$/assets/css/styles.css" />
     </list>
     <ignored path="imv.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,7 +45,30 @@
     <favorites_list name="imv" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="fullcalendar-script.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/plugins/fullcalendar/fullcalendar-script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fullcalendar.min.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/plugins/fullcalendar/js/fullcalendar.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,30 +120,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="imv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -234,10 +256,36 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/assets/plugins/fullcalendar/fullcalendar-script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plugins/fullcalendar/fullcalendar-script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plugins/fullcalendar/js/fullcalendar.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

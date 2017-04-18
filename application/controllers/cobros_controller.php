@@ -23,5 +23,9 @@ class Cobros_controller extends CI_Controller
         $this->load->view('jsview/js_cobros');
     }
 
+    public function searchCobros($f1 = '',$f2 = '')
+    {
+        $this->Cobros_model->searchCobros($f1,$f2);
+    }
 }
 ?>

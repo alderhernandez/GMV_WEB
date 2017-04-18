@@ -7,9 +7,18 @@
     <div class="noMargen row TextColor center"><div class="col s12 m8 l12 offset-m1">COBROS</div></div>
     
     <div class="noMargen Buscar row column">
-        <div class="input-field col s6 m4 l4 offset-l4 center">
+        <div class="input-field col s5 m3 l3 offset-l2 center">
+            <input id="f1" type="date" class="datepicker">
+        </div>
+        <div class="input-field col s5 m3 l3 center">
+            <input id="f2" type="date" class="datepicker">
+        </div>
+        <div class="input-field col s5 m3 l3 center">
             <input  id="searchDatos" type="text"class="validate">
             <label for="searchDatos">BUSCAR</label>
+        </div>
+        <div class="input-field col s1 center">
+           <a href="#" id="searchC"><i class="material-icons">search</i></a>
         </div>
     </div>
             

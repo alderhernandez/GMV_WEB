@@ -6,24 +6,23 @@
 <script type="text/javascript" src="<?PHP echo base_url();?>assets/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="<?PHP echo base_url();?>assets/js/extensions/dataTables.colVis.min.js"></script>
 <script type="text/javascript" src="<?PHP echo base_url();?>assets/js/extensions/dataTables.tableTools.min.js"></script>
-
-
-<!--
-<script type="text/javascript" src="//code.jquery.com/jquery-1.12.3.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-<script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-<script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-<script type="text/javascript" src="//cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
--->
+<script type="text/javascript" charset="utf8" src="<?PHP echo base_url();?>assets/js/sweetalert.min.js"></script>
 
 <script src="<?PHP echo base_url();?>assets/js/JS.js"></script>
 <script src="<?PHP echo base_url();?>assets/js/material.min.js"></script>
 <script src="<?PHP echo base_url();?>assets/js/materialize.js"></script>
-<script src="<?PHP echo base_url();?>assets/js/bootstrap.js"></script>
+<!--<script src="<?PHP echo base_url();?>assets/js/bootstrap.js"></script>-->
 
 <script src="<?PHP echo base_url();?>assets/js/chosen.jquery.js"></script>
+
+<!-- Calendar Script -->
+<!--<script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/lib/jquery-ui.custom.min.js"></script>-->
+<script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/moment.min.js"></script>
+<script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/js/fullcalendar.min.js"></script>
+<script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/fullcalendar-script.js"></script>
+<script type="text/javascript" src = "<?PHP echo base_url();?>assets/plugins/fullcalendar/js/lang/es.js" > </script>
+
+
 <script>
     $('.datepicker1').pickadate({
         selectMonths: true, // Creates a dropdown to control month

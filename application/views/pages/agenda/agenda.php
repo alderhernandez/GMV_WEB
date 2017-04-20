@@ -15,26 +15,50 @@
            <a href="#" id="searchC"><i class="material-icons">search</i></a>
         </div>
     </div>
-    
-    <div class="row" id="monitoreo1">
-        <div class="input-field col s6 l2 offset-l10">
-            <select class="regular" id="selectRuta">
-                <option value="" disabled selected>Seleccione la ruta...</option>
-                <?php 
-                    if (!($ruta)) {}
-                    else{
-                        foreach ($ruta as $key) {
-                            echo "<option value=".$key['IdUser'].">".$key['Usuario']."</option>";
-                        }                               
+    <div class="row">
+        <table id="tblAgenda" class=" TblDatos">
+            <thead>
+                <tr>
+                    <th>RUTA</th>
+                    <th>VENDEDOR</th>
+                    <th>INICIO</th>
+                    <th>FINAL</th>
+                    <th>VER</th>
+                </tr>
+            </thead>
+            <tbody class="center">
+            <?php 
+                if(!$agendas){
+                } else {
+                    foreach($agendas as $index){
+                        echo "<tr>
+                                    <td class='negra'>".$index['Ruta']."</td>
+                                    <td class=''>".$index['Vendedor']."</td>
+                                    <td class='negra'>".date('d-m-Y',strtotime($index['Inicia']))."</td>
+                                    <td class='negra'>".date('d-m-Y',strtotime($index['Termina']))."</td>
+                                    <td class='center'>
+                                        <a  onclick='getview(".'"'.$index['IdPlan'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
+                                    </td>
+                              </tr>";
                     }
-                ?>
-            </select>
+                }
+            ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+</main>  
+<!-- FIN CONTENIDO PRINCIPAL -->
+
+<div id="modalDetalleAgenda" class="modal modal-fixed-footer">
+    <div class="modal-content"><br><br>
+        <div class="right row">
+            <a href="#!" class=" BtnClose modal-action modal-close ">
+                <i class="material-icons">highlight_off</i>
+            </a>
         </div>
         <div class="col s12 m12 l12">
             <div id='calendario'></div>
         </div>
     </div>
-
-</div>
-</main>  
-<!-- FIN CONTENIDO PRINCIPAL -->
+  </div>

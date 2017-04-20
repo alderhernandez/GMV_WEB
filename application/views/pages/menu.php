@@ -20,7 +20,8 @@
               switch ($this->session->userdata('RolUser')) {
                 case '1':
                   $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inicio</li></a>
-                           <a href="agenda"><li href="agenda"><i class="material-icons">date_range</i> agenda</li></a>                  
+                           <a href="carga"><li href="carga"><i class="material-icons">backup</i> carga</li></a>
+                           <a href="agenda"><li href="agenda"><i class="material-icons">date_range</i> agenda</li></a>
                            <a href="pedidos"><li href="pedidos"><i class="material-icons">equalizer</i> pedidos</li></a>
                            <a href="cobros"><li href="cobros"><i class="material-icons">monetization_on</i> cobros</li></a>
                            <a href="grupos"><li href="grupos"><i class="material-icons">view_quilt</i> grupos</li></a>

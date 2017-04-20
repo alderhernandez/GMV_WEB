@@ -660,10 +660,10 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 /****** Tabla zebra ********/
 table tr:nth-child(even) {
-    background-color: #ffffff!important;
+    background-color: #ffffff;
 }
 table tr:nth-child(odd) {
-    background-color: #e7e2f7!important;
+    background-color: #e7e2f7;
 }
 
 table th {
@@ -1259,8 +1259,12 @@ label>select {
 #modalEdit{
   width: 90%;
   min-height: 85%;
-  
 }
 #modalDetalleFact{
   width: 90%;
+}
+#modalDetalleAgenda{
+  width: 96%;
+  min-height: 90%;
+  height: 90%;
 }

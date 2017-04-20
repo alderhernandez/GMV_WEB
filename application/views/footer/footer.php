@@ -19,7 +19,7 @@
 <!--<script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/lib/jquery-ui.custom.min.js"></script>-->
 <script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/moment.min.js"></script>
 <script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/js/fullcalendar.min.js"></script>
-<script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/fullcalendar-script.js"></script>
+<!--<script type="text/javascript" src="<?PHP echo base_url();?>assets/plugins/fullcalendar/fullcalendar-script.js"></script>-->
 <script type="text/javascript" src = "<?PHP echo base_url();?>assets/plugins/fullcalendar/js/lang/es.js" > </script>
 
 

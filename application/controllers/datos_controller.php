@@ -10,13 +10,14 @@ class Datos_controller extends CI_Controller
             redirect(base_url().'index.php/login','refresh');
         }
         $this->load->model('datos_model');
+        $this->load->model('agenda_model');
         $this->load->library('session');
-        $this->load->helper('cookie');
         require_once(APPPATH.'libraries/Excel/reader.php');
     }
     public function index()
     {
-        $data['datos'] = $this->datos_model->getDatos();
+        $data['ruta'] = $this->agenda_model->traerRutas();
+        $data['agendas'] = $this->datos_model->traerAgenda();
 
         $this->load->view('header/header');
         $this->load->view('pages/menu');
@@ -25,70 +26,50 @@ class Datos_controller extends CI_Controller
         $this->load->view('jsview/js_datos'); 
     }
     
-    public function subir(){
-
-      $data = new Spreadsheet_Excel_Reader();
-      $data->setOutputEncoding('CP-1251');
-      $data->read($_FILES["file"]['tmp_name']);
-      error_reporting(E_ALL ^ E_NOTICE);
-      //$codigo = (@ereg_replace("[^0-9]", "", $data->sheets[0]['cells'][$i][1]));
-
-      $this->datos_model->metaCuota('META',$this->input->post('fecha'));
-      for ($i=2; $i <= count($data->sheets[0]['cells']); $i++) {
-
-        if ($data->sheets[0]['cells'][$i][1]<>""){
-          $this->datos_model->subir($data->sheets[0]['cells'][$i][1],$data->sheets[0]['cells'][$i][2],$data->sheets[0]['cells'][$i][3],
-                                      $data->sheets[0]['cells'][$i][4],$data->sheets[0]['cells'][$i][5],$data->sheets[0]['cells'][$i][6],
-                                      $data->sheets[0]['cells'][$i][7],$data->sheets[0]['cells'][$i][8]);
-
-        }
-      }
-      $this->datos_model->metaCuota('CUOTA',$this->input->post('fecha'));
-      for ($i=2; $i <= count($data->sheets[1]['cells']); $i++){
-        if ($data->sheets[1]['cells'][$i][1]<>"" &&  $data->sheets[1]['cells'][$i][5] !='0'){
-            $this->datos_model->subir2($data->sheets[1]['cells'][$i][1],$data->sheets[1]['cells'][$i][2],$data->sheets[1]['cells'][$i][3],
-                                      $data->sheets[1]['cells'][$i][4],$data->sheets[1]['cells'][$i][5]);
-        }
-      }
-      $this->vistaPrevia($this->input->post('fecha'));
-    }
-    public function subir2(){
-        $IdPeriodo = "";
-        if ($_POST['bandera']=='1') {
-          $IdPeriodo = $this->datos_model->crearMetaCuota($_POST['fecha']);
-        }
-        
+    public function subirPlan(){
         $data = new Spreadsheet_Excel_Reader();
         $data->setOutputEncoding('CP-1251');
         $data->read($_FILES["file"]['tmp_name']);
         error_reporting(E_ALL ^ E_NOTICE);
-        for ($i=2; $i <= count($data->sheets[0]['cells']); $i++){
-          if($data->sheets[0]['cells'][$i][1]<>""){
-            $this->datos_model->subirRecuperacion($data->sheets[0]['cells'][$i][1],$data->sheets[0]['cells'][$i][2],$data->sheets[0]['cells'][$i][4],$data->sheets[0]['cells'][$i][5],$_POST['fecha']);
+
+        $nombre = $data->sheets[0]['cells'][5][2];
+        $ruta = $data->sheets[0]['cells'][5][5];
+        $f1 = $data->sheets[0]['cells'][7][2];
+        $f2 = $data->sheets[0]['cells'][7][5];
+        $d1;$d2;$d3;$d4;$d5;
+        $comentarios;
+
+
+        if ($nombre!="" && $ruta!="" && $f1!="" && $f2!="") {
+        $this->datos_model->guardarAgenda($nombre,$ruta,$f1,$f2);
+            for ($i=10; $i <= 30; $i++){
+                if ($data->sheets[0]['cells'][$i][1]!="") {
+                    $d1 .=$data->sheets[0]['cells'][$i][1]."-";
+                }
+                if ($data->sheets[0]['cells'][$i][2]!="") {
+                    $d2 .=$data->sheets[0]['cells'][$i][2]."-";
+                }
+                if ($data->sheets[0]['cells'][$i][3]!="") {
+                    $d3 .=$data->sheets[0]['cells'][$i][3]."-";
+                }
+                if ($data->sheets[0]['cells'][$i][4]!="") {
+                    $d4 .=$data->sheets[0]['cells'][$i][4]."-";
+                }
+                if ($data->sheets[0]['cells'][$i][5]!="") {
+                    $d5 .=$data->sheets[0]['cells'][$i][5]."-";
+                }
+                if ($data->sheets[0]['cells'][$i][6]!="") {
+                    $comentarios .=$data->sheets[0]['cells'][$i][6]."|-|";
+                }
+            }
         }
-      }
-    redirect(base_url().'index.php/datos','refresh');
-    }
-    public function vistaPrevia($fecha)
-    {
-      $data['cuotas'] = $this->datos_model->vistaPrevia($fecha,"CUOTAXPRODUCTO","CUOTA");
-      $data['metas'] = $this->datos_model->vistaPrevia($fecha,"metas","META");
-      
-      $this->load->view('header/header');
-      $this->load->view('pages/menu');
-      $this->load->view('pages/datos/vistaPrevia',$data);
-      $this->load->view('footer/footer'); 
-      $this->load->view('jsview/js_datos');
-    }
-    public function descartarDatos()
-    {
-      $this->datos_model->descartarDatos($_POST['cuota'],'cuotaxproducto');
-      $this->datos_model->descartarDatos($_POST['meta'],'metas');
-      //$this->index();
-    }
-    public function viewDatos($id,$tipo)
-    {
-      $this->datos_model->viewDatos($id,$tipo);
+        
+        for ($e=1; $e <=5 ; $e++) { 
+            $variable = "d".$e."";
+            $$variable = substr($$variable, 0, -1);
+        }
+        $this->datos_model->guardarDetAgenda($d1,$d2,$d3,$d4,$d5,$comentarios,$ruta);
+        redirect('carga','refresh');
     }
 }
 ?>

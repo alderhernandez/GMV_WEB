@@ -40,8 +40,13 @@ $route['Clientes'] = 'clientes_controller/Clientes';
 /*USUARIOS*/
 $route['Usuarios'] = 'usuario_controller'; 
 
-/*USUARIOS*/
-$route['agenda'] = 'agenda_controller'; 
+/*AGENDA*/
+$route['agenda'] = 'agenda_controller';
+$route['ajaxCalendario/(:any)'] = 'agenda_controller/ajaxCalendario/$1';
+
+/*CARGA DATOS*/
+$route['carga'] = 'datos_controller';
+$route['subirPlan'] = 'datos_controller/subirPlan';
 
 // RUTA REPORTES
 $route['Reportes'] = 'reportes_controller';

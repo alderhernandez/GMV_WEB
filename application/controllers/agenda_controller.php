@@ -23,11 +23,16 @@ class Agenda_controller extends CI_Controller
         $this->load->view('footer/footer');
         $this->load->view('jsview/js_agenda');
     }
-    public function cargaPlan(){
-        
+    public function guardarComentario()
+    {
+        $this->agenda_model->guardarComentario($this->input->post('IdPlan'),$this->input->post('Comen'));
     }
     public function ajaxCalendario($IdPlan){
         $this->agenda_model->ajaxCalendario($IdPlan);
+    }
+    public function traerComentario()
+    {
+        $this->agenda_model->traerComentario($this->input->post('IdPlan'));
     }
 }
  ?>

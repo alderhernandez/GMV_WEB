@@ -1,7 +1,5 @@
 <script>
 $(document).ready(function() {
-        //$("#modalEdit").openModal();
-        //editGrupo("4","sac4");
 		$('#tblCobros').DataTable({
             "scrollCollapse": true,
             "info":    false,            
@@ -26,7 +24,7 @@ $(document).ready(function() {
             $(this).toggleClass('selected');
         });
 });
-    
+    var idGlobal;
     $("#guardarGrupo").click(function(){
         if ($('#grupo').val()=="" || $('#grupo').val().length<5) {
             mensaje("DIGITE UN NOMBRE VALIDO","error");$('#grupo').focus();return false;
@@ -44,7 +42,7 @@ $(document).ready(function() {
         $("#loadTabla1").show();
         $("#tbl2").hide();
         $("#tbl1").hide();        
-        
+        idGlobal = id;
         $('#tbl1').DataTable({
             ajax: "getVendedoresGrupoAct/"+ id,
             "destroy": true,
@@ -109,12 +107,55 @@ $(document).ready(function() {
         var rows = table.rows( '.selected' ).remove().draw();
     });
     $("#guardarEdicion").click(function(){
+        $("#loadDetalle2").show();
+        $("#guardarEdicion").hide();
+        var detalleGrupo  = new Array();
+        var i = 0;
         tabla = $('#tbl2').DataTable();
-        var linea = 0;
         tabla.rows().data().each( function (index,value) {
-            alert(tabla.row(linea).data().NOMBRE)
-            linea++;
+            if (tabla.row(i).data().IDVENDEDOR != "NO HAY DATOS") {
+                detalleGrupo[i] = idGlobal+","+tabla.row(i).data().IDUSUARIO;                
+            }
+            i++;
         });
-        //alert("guardando...");
+        var form_data = {
+            grupo: detalleGrupo
+        };
+        
+        if (detalleGrupo.length!=0) {
+            swal({
+              title: "¿Desea guardar los cambios en el grupo?",
+              text: "OK para guardar",
+              type: "info",
+              showCancelButton: true,
+              closeOnConfirm: false,
+              showLoaderOnConfirm: true,
+            },
+            function(isConfirm){
+                if (isConfirm) {
+                  $.ajax({
+                        url: "editarGrupo/",
+                        type: "POST",
+                        data: form_data,
+                        success: function(resu)
+                        {
+                            if (resu==1) {
+                                swal("Informacion Guardada!", "Espere...")
+                                $(location).attr('href',"grupos");
+                            }else{
+                                sweetAlert("Error...", "Ocurrio un error, intente de nuevo", "error");
+                            }
+                        }
+                    });
+                }else{
+                    $("#guardarEdicion").show();
+                    $("#loadDetalle2").hide();
+                }
+            });
+        }else{
+            sweetAlert("Error...", "Grupo vacio, Ingrese al menos 1 vendedor!", "error");
+            $("#guardarEdicion").show();
+            $("#loadDetalle2").hide();
+        }
     })
 </script>

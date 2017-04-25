@@ -94,5 +94,27 @@ class Agenda_model extends CI_Model
         }
         return $pila;
     }
+    public function guardarComentario($IdPlan,$Comentario)
+    {
+        $datos = array('Comentario' => strtoupper($Comentario));
+        $this->db->where('IdPlan',$IdPlan);
+        $query = $this->db->update('agenda',$datos);
+        echo $query;
+    }
+    public function traerComentario($IdPlan)
+    {
+        $this->db->where('IdPlan',$IdPlan);
+        $this->db->select('Comentario');
+        $query = $this->db->get('Agenda');
+        if ($query->num_rows()>0) {
+            if ($query->result_array()[0]['Comentario'] !="") {
+                echo $query->result_array()[0]['Comentario'];
+            }else{
+                echo "NO HAY COMENTARIO";
+            }
+        }else{
+            echo "No hay comentario";
+        }
+    }
 }
 ?>

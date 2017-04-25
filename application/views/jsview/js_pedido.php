@@ -20,7 +20,10 @@
         });
 
 	});
-    
+    $('#searchDatos').on( 'keyup', function () {
+            var table = $('#tblPedidos').DataTable();
+            table.search(this.value).draw();
+        });
     function getview(id,cliente,vendedor) {
         $('#modalDetalleFact').openModal();
         $("#datosPedido").hide();

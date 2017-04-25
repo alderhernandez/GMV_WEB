@@ -35,6 +35,10 @@ class Grupos_controller extends CI_Controller
     {
         $this->grupos_model->getVendedoresGrupo($idGrupo);
     }
+    public function editarGrupo()
+    {
+        $this->grupos_model->editarGrupo($this->input->post('grupo'));
+    }
 
 }
 ?>

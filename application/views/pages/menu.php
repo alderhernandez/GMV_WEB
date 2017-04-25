@@ -18,7 +18,7 @@
            <ul class="nav menu demo-navigation mdl-navigation__link" >
             <?php
               switch ($this->session->userdata('RolUser')) {
-                case '1':
+                case '2':
                   $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inicio</li></a>
                            <a href="carga"><li href="carga"><i class="material-icons">backup</i> carga</li></a>
                            <a href="agenda"><li href="agenda"><i class="material-icons">date_range</i> agenda</li></a>
@@ -26,10 +26,24 @@
                            <a href="cobros"><li href="cobros"><i class="material-icons">monetization_on</i> cobros</li></a>
                            <a href="grupos"><li href="grupos"><i class="material-icons">view_quilt</i> grupos</li></a>
                            <a href="#modalOpciones" class="modal-trigger"><li href="#"><i class="material-icons">settings</i> opciones</li></a>
-                           <a href="salir"> <li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
+                           <a href="salir"><li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
                 break;
-                case '2':
-                  $menu = '<a href="salir"> <li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
+                case '3':
+                  $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inicio</li></a>
+                           <a href="carga"><li href="carga"><i class="material-icons">backup</i> carga</li></a>
+                           <a href="agenda"><li href="agenda"><i class="material-icons">date_range</i> agenda</li></a>
+                           <a href="#modalOpciones" class="modal-trigger"><li href="#"><i class="material-icons">settings</i> opciones</li></a>
+                           <a href="salir"><li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
+                break;
+                case '4':
+                  $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inicio</li></a>
+                           <a href="carga"><li href="carga"><i class="material-icons">backup</i> carga</li></a>
+                           <a href="agenda"><li href="agenda"><i class="material-icons">date_range</i> agenda</li></a>
+                           <a href="pedidos"><li href="pedidos"><i class="material-icons">equalizer</i> pedidos</li></a>
+                           <a href="cobros"><li href="cobros"><i class="material-icons">monetization_on</i> cobros</li></a>
+                           <a href="grupos"><li href="grupos"><i class="material-icons">view_quilt</i> grupos</li></a>
+                           <a href="#modalOpciones" class="modal-trigger"><li href="#"><i class="material-icons">settings</i> opciones</li></a>
+                           <a href="salir"><li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
                 break;
                 default:
                   $menu = '<a href="salir"> <li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';

@@ -633,7 +633,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 .Datos{
     font-family: 'robotoblack';
-    color: #866FD5;
+    color: #1F0A71;
     font-size: 17px;
 }
 .datos1{
@@ -1222,7 +1222,7 @@ label>select {
   color: #ff002a!important;
 }
 .observaciones{
-    border: 1px solid #6a4ad5!important;
+    border: 1px solid #1F0A71!important;
     box-shadow: none !important;
     font-family: 'robotoregular'!important;
     font-size: 12px!important;
@@ -1267,4 +1267,8 @@ label>select {
   width: 96%;
   min-height: 90%;
   height: 90%;
+}
+#modalView{
+  max-height: 50%;
+  height: 50%;
 }

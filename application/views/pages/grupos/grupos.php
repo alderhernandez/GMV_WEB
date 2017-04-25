@@ -146,7 +146,7 @@
                             <table id="tbl2" class=" TblDatos">
                                 <thead>
                                     <tr>
-                                        <th>ID GRUPO</th>
+                                        <th>ID USUARIO</th>
                                         <th>RUTA</th>
                                         <th>NOMBRE</th>
                                     </tr>
@@ -166,7 +166,7 @@
                 </div>
             <div class="row center">
                 <a id="guardarEdicion" class="redondo waves-effect waves-light btn">GUARDAR</a>
-                <div id="loadDetalle" style="display:none" class="preloader-wrapper big active">
+                <div id="loadDetalle2" style="display:none" class="preloader-wrapper big active">
                     <div class="spinner-layer spinner-blue-only">
                         <div class="circle-clipper left"><div class="circle"></div></div>
                         <div class="gap-patch"><div class="circle"></div></div>

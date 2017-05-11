@@ -65,7 +65,7 @@ class Grupos_model extends CI_Model
         if ($query->num_rows()>0) {
             foreach ($query->result_array() as $key) {
                 $json['data'][$i]['IDUSUARIO'] = $key['IdVendedor'];
-                $json['data'][$i]['IDVENDEDOR'] = $key['IdVendedor'];
+                $json['data'][$i]['IDVENDEDOR'] = $key['Ruta'];
                 $json['data'][$i]['NOMBRE'] = $key['Ruta']." ".$key['NombreRuta'];
                 $i++;
             }
@@ -76,14 +76,16 @@ class Grupos_model extends CI_Model
         }
         echo json_encode($json);
     }
-    public function editarGrupo($grupo)
-    {
+    public function editarGrupo($grupo){
         $datos = explode(",", $grupo[0]);
-        $update = $this->db->query("UPDATE grupo_asignacion SET Estado = 0 WHERE IdGrupo = '".$datos[0]."'");
-        for ($i=0; $i <count($grupo); $i++) {
+        //$update = $this->db->query("UPDATE grupo_asignacion SET Estado = 0 WHERE IdGrupo = '".$datos[0]."'");
+        $this->db->where('IdGrupo',$datos[0]);
+        $this->db->delete('grupo_asignacion');
+        for ($i = 0; $i <count($grupo); $i++) {
             $datos = explode(",", $grupo[$i]);
-
-            $this->db->where('IdGrupo',$datos[0]);
+            
+            //echo $datos[1];
+            /*$this->db->where('IdGrupo',$datos[0]);
             $this->db->where('IdVendedor',$datos[1]);
             $query = $this->db->get('grupo_asignacion');
             if ($query->num_rows()>0) {
@@ -91,15 +93,18 @@ class Grupos_model extends CI_Model
                 $this->db->where('IdGrupo',$datos[0]);
                 $this->db->where('IdVendedor',$datos[1]);
                 $query = $this->db->update('grupo_asignacion',$data);
-            }else{
+            }else{*/
+            if ($datos[1]) {            
                 $data = array( 'IdGrupo' => $datos[0],
                                 'IdVendedor' => $datos[1],
                                 'Estado' => 1,
                                 'FechaCreada' => date("Y-m-d")
                             );
-                $query = $this->db->insert('grupo_asignacion',$data);
-            }          
 
+                //$this->db->where('IdVendedor',$datos[1]);
+                $query = $this->db->insert('grupo_asignacion',$data);
+            }                
+            //}
         }
         echo $query;
     }

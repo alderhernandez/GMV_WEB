@@ -113,10 +113,10 @@ $(document).ready(function() {
         var i = 0;
         tabla = $('#tbl2').DataTable();
         tabla.rows().data().each( function (index,value) {
-            if (tabla.row(i).data().IDVENDEDOR != "NO HAY DATOS") {
-                detalleGrupo[i] = idGlobal+","+tabla.row(i).data().IDUSUARIO;                
-            }
-            i++;
+            //if (tabla.row(i).data().IDVENDEDOR != "NO HAY DATOS") {
+                detalleGrupo[i] = idGlobal+","+tabla.row(i).data().IDUSUARIO;
+                i++;
+            //}            
         });
         var form_data = {
             grupo: detalleGrupo
@@ -144,6 +144,7 @@ $(document).ready(function() {
                                 $(location).attr('href',"grupos");
                             }else{
                                 sweetAlert("Error...", "Ocurrio un error, intente de nuevo", "error");
+                                $("#guardarEdicion").show();///
                             }
                         }
                     });

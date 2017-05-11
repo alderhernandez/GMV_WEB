@@ -23,6 +23,7 @@
                     <th>NOMBRE CLIENTE</th>
                     <th>FECHA</th>
                     <th>MONTO</th>
+                    <th>ESTADO</th>
                     <th>VER</th>
                 </tr>
             </thead>
@@ -37,8 +38,23 @@
                                     <td>".$key['CLIENTE']."</td>
                                     <td>".$key['NOMBRE']."</td>
                                     <td>".$key['FECHA_CREADA']."</td>
-                                    <td>".number_format($key['MONTO'],4)."</td>
-                                    <td class='regular'><a  onclick='getview(".'"'.$key['IDPEDIDO'].'"'.",".'"'.$key['NOMBRE']." ".$key['CLIENTE'].'"'.",".'"'.$key['VENDEDOR'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
+                                    <td>".number_format($key['MONTO'],4)."</td>";
+                                switch ($key['ESTADO']) {
+                                        case '1':
+                                            $estado = '<i class="material-icons">check</i>';
+                                            break;
+                                        case '2':
+                                            $estado = '<i class="material-icons">done_all</i>';
+                                            break;
+                                        case '3':
+                                            $estado = '<i class="green-text material-icons">done_all</i>';
+                                            break;
+                                        default:
+                                            
+                                            break;
+                                    }    
+                                echo"<td class='regular'>".$estado."</td>";
+                                echo  "<td class='regular'><a  onclick='getview(".'"'.$key['IDPEDIDO'].'"'.",".'"'.$key['NOMBRE']." ".$key['CLIENTE'].'"'.",".'"'.$key['VENDEDOR'].'"'.",".'"'.$key['ESTADO'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
                                 </tr>";
                             }
                         }

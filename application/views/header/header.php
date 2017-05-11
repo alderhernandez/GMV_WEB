@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <!--<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/faviconazul.png" />-->
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/gmvfavicon.png" />
     <title>GMV 1.0.1</title>
     
     <!-- Add to homescreen for Chrome on Android -->

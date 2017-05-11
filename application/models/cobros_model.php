@@ -5,15 +5,23 @@ class Cobros_model extends CI_Model
         parent::__construct();
         $this->load->database();            
     }
-    public function cobros()
-    {
-    	$query = $this->db->query('SELECT * FROM cobros ORDER BY FECHA LIMIT 50');
+    public function cobros(){
+
+        if ($this->session->userdata('RolUser')==2){
+            $query = $this->db->query("SELECT RUTA FROM view_misRutas
+                                        WHERE IdResponsable = '".$this->session->userdata('id')."'");
+            if ($query->num_rows()>0) {
+                $query = $this->db->query("SELECT * FROM cobros WHERE RUTA IN (".$query->result_array()[0]['RUTA'].")");                
+            }
+        }else{
+            $query = $this->db->query('SELECT * FROM cobros ORDER BY FECHA LIMIT 50');
+        }
+
     	if ($query->num_rows()>0) {
     		return $query->result_array();
     	}return 0;
     }
-    public function searchCobros($f1 = '',$f2 = '')
-    {
+    public function searchCobros($f1 = '',$f2 = ''){
         $i=0;
         $json = array();
 

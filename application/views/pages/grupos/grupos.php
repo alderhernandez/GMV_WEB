@@ -37,7 +37,7 @@
                                     <td>".$key['Responsable']."</td>
                                     <td>".$key['FechaCreada']."</td>                                    
                                     <td class='center'>
-                                       <a  onclick='editGrupo(".'"'.$key['IdGrupo'].'","'.$key['NombreGrupo'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
+                                        <a  onclick='editGrupo(".'"'.$key['IdGrupo'].'","'.$key['NombreGrupo'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
                                     </td>
                             </tr>";
                         }
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="col s2 m2 l2">
-                        <div class="row center"><p>OPCIÓNES</p></div><br><br>
+                        <br><br><br><br>
                         <div class="row center">
                             <a id="addRight" class="redondo waves-effect waves-light btn"><i class="material-icons center">chevron_right</i></a>
                         </div>

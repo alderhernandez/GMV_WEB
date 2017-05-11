@@ -10,8 +10,7 @@ class Pedidos_controller extends CI_Controller
             redirect(base_url().'index.php/login','refresh');
         }
     }
-    public function index()
-    {
+    public function index(){
         $data['data'] = $this->pedidos_model->pedidos();
     	$this->load->view('header/header');
         $this->load->view('pages/menu');

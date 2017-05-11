@@ -24,7 +24,11 @@
             var table = $('#tblPedidos').DataTable();
             table.search(this.value).draw();
         });
-    function getview(id,cliente,vendedor) {
+    function getview(id,cliente,vendedor,estado) {
+        $("#btnProcesar").show();
+        if (estado == 3) {
+            $("#btnProcesar").hide();
+        }        
         $('#modalDetalleFact').openModal();
         $("#datosPedido").hide();
         $('#loadIMG').show();
@@ -70,32 +74,37 @@
                 var total=0;
                     obj = $('#TbDetalleFactura').DataTable();
                     obj.rows().data().each( function (index,value) {
-                        total += parseFloat(obj.row(value).data().TOTAL.replace(",", "."));
+                        total += obj.row(value).data().TOTAL.replace(",", ".");
                     });
                 $('#total').text(addCommas(total)+" C$");
             }).dataTable();        
     }
     $("#btnProcesar").click(function(){
-        if ($("#codPedido").text().length>10 && $("#codPedido").text()!="")
-        {
+        if ($("#codPedido").text().length>10 && $("#codPedido").text()!=""){
             swal({
-              title: "¿CONFIRMA EL PEDIDO?",
-              text: "Se marcara el pedido como procesado...",
-              type: "info",
+              title: "Esta seguro?",
+              text: "Se marcara el pedido como procesado!",
+              type: "warning",
               showCancelButton: true,
+              confirmButtonColor: "#DD6B55",
+              confirmButtonText: "Procesar!",
+              cancelButtonText: "Cancelar!",
               closeOnConfirm: false,
-              showLoaderOnConfirm: true,
+              closeOnCancel: true
             },
-            function(){
-              $.ajax({
+            function(isConfirm){
+              if (isConfirm) {
+                 $.ajax({
                 url: "ajaxUpdatePedido/3/"+ $("#codPedido").text(),
                 type: "post",
                 async:true,
                 success:
                 function(clsAplicados){
-                    $(location).attr('href',"pedidos");
-                }
-                });
+                    swal("Procesado!", "El pedido ha sido marcado como procesado.", "success");
+                    setInterval(function(){ $(location).attr('href',"pedidos"); }, 1500);                    
+                    }
+                });                
+              }
             });
         }
     });

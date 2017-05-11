@@ -502,6 +502,7 @@ temporary rendered events).
 .fc-row .fc-helper-skeleton tbody td {
 	/* don't put a border between event cells */
 	border-top: 0;
+	padding-top: 3px;
 }
 
 
@@ -522,12 +523,17 @@ temporary rendered events).
 
 /* Global Event Styles
 --------------------------------------------------------------------------------------------------*/
-
+/*.fc-content-skeleton table tr:nth-child(odd){
+    background-color: white!important;
+}*/
+.fc-content-skeleton table tbody tr{
+    height: 48px!important;
+}
 .fc-event {
 	position: relative; /* for resize handle and other inner positioning */
 	display: block; /* make the <a> tag block */
-	font-size: .85em;
-	line-height: 1.3;
+	font-size: 17px;
+	line-height: 2.3;
 	border-radius: 3px;
 	border: 1px solid #3a87ad; /* default BORDER color */
 	font-weight: normal; /* undo jqui's ui-widget-header bold */
@@ -734,6 +740,8 @@ tr:first-child > td > .fc-day-grid-event {
 .fc-day-grid-event .fc-content { /* force events to be one-line tall */
 	white-space: nowrap;
 	overflow: hidden;
+	text-align: center;
+	height: 36px;
 }
 
 .fc-day-grid-event .fc-time {

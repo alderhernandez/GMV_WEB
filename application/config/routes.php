@@ -33,6 +33,7 @@ $route['grupos'] = 'grupos_controller';
 $route['nuevoGrupo'] = 'grupos_controller/nuevoGrupo';
 $route['getVendedoresGrupo/(:any)'] = 'grupos_controller/getVendedoresGrupo/$1';
 $route['getVendedoresGrupoAct/(:any)'] = 'grupos_controller/getVendedoresGrupoAct/$1';
+$route['editarGrupo'] = 'grupos_controller/editarGrupo';
 
 /* CLIENTES */
 $route['Clientes'] = 'clientes_controller/Clientes';
@@ -40,8 +41,15 @@ $route['Clientes'] = 'clientes_controller/Clientes';
 /*USUARIOS*/
 $route['Usuarios'] = 'usuario_controller'; 
 
-/*USUARIOS*/
-$route['agenda'] = 'agenda_controller'; 
+/*AGENDA*/
+$route['agenda'] = 'agenda_controller';
+$route['ajaxCalendario/(:any)'] = 'agenda_controller/ajaxCalendario/$1';
+$route['guardarComentario'] = 'agenda_controller/guardarComentario';
+$route['traerComentario'] = 'agenda_controller/traerComentario';
+
+/*CARGA DATOS*/
+$route['carga'] = 'datos_controller';
+$route['subirPlan'] = 'datos_controller/subirPlan';
 
 // RUTA REPORTES
 $route['Reportes'] = 'reportes_controller';

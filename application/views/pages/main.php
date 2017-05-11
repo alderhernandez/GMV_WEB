@@ -1,5 +1,5 @@
 <header class="demo-header mdl-layout__header ">
-    <div class="centrado  ColorHeader"><span class=" title">BIENVENIDO AL SISTEMA IMV</span></div>
+    <div class="centrado  ColorHeader"><span class=" title">BIENVENIDO AL SISTEMA GMV</span></div>
 </header>
 
 <main class="mdl-layout__content mdl-color--grey-100">

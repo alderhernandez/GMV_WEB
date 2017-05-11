@@ -37,7 +37,7 @@
                                     <td>".$key['Responsable']."</td>
                                     <td>".$key['FechaCreada']."</td>                                    
                                     <td class='center'>
-                                       <a  onclick='editGrupo(".'"'.$key['IdGrupo'].'","'.$key['NombreGrupo'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
+                                        <a  onclick='editGrupo(".'"'.$key['IdGrupo'].'","'.$key['NombreGrupo'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
                                     </td>
                             </tr>";
                         }
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="col s2 m2 l2">
-                        <div class="row center"><p>OPCIÓNES</p></div><br><br>
+                        <br><br><br><br>
                         <div class="row center">
                             <a id="addRight" class="redondo waves-effect waves-light btn"><i class="material-icons center">chevron_right</i></a>
                         </div>
@@ -146,7 +146,7 @@
                             <table id="tbl2" class=" TblDatos">
                                 <thead>
                                     <tr>
-                                        <th>ID GRUPO</th>
+                                        <th>ID USUARIO</th>
                                         <th>RUTA</th>
                                         <th>NOMBRE</th>
                                     </tr>
@@ -166,7 +166,7 @@
                 </div>
             <div class="row center">
                 <a id="guardarEdicion" class="redondo waves-effect waves-light btn">GUARDAR</a>
-                <div id="loadDetalle" style="display:none" class="preloader-wrapper big active">
+                <div id="loadDetalle2" style="display:none" class="preloader-wrapper big active">
                     <div class="spinner-layer spinner-blue-only">
                         <div class="circle-clipper left"><div class="circle"></div></div>
                         <div class="gap-patch"><div class="circle"></div></div>

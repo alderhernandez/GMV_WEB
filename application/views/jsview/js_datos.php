@@ -1,18 +1,29 @@
 <script>
-	$(document).ready(function() {
+$(document).ready(function() {
 	$('#searchDatos').on( 'keyup', function () {
 		var table = $('#tblDatos').DataTable();
 		table.search(this.value).draw();
+	});    
+});
+	$('#subirExcel').click(function(){
+		var excel = $('#csv').val().replace(/C:\\fakepath\\/i, '');
+    	var tipoExcel = excel.split(".");
+    	//if ($("#csv").val()=="") {mensaje("SELECCIONE UN ARCHIVO EXCEL(2003)","error"); return false;}
+        if ($("#csv").val()=="") {sweetAlert("Error...", "Seleccione el archivo excel", "error");return false}
+		if (tipoExcel[1]!="xls"){sweetAlert("Error...", "El archivo no es un excel 97-2003(xls)", "error");return false}
+		else{
+			$('#subirExcel').hide();
+			$('#loadsubir').show();
+			$('#cargando').show();
+			$('#formExcel').submit();
+		}
 	});
-    $('#searchView').on( 'keyup', function () {
-        var table = $('#tblDetalleReportes').DataTable();
-        table.search(this.value).draw();
-    });    
-		$('#tblDatos,#tblmetas,#tblcuotas').DataTable({
+    
+    $('#tblAgenda').DataTable({
             "scrollCollapse": true,
             //"paging":         false,
             "info":    false,            
-            "lengthMenu": [[5,10,50,100,-1], [5,10,50,100,"Todo"]],
+            "lengthMenu": [[20,30,50,100,-1], [20,30,50,100,"Todo"]],
             "language": {
                 "zeroRecords": "NO HAY RESULTADOS",
                 "paginate": {
@@ -26,52 +37,7 @@
                 "search":     "BUSCAR"
             }
         });
-	});
-	$('#subirExcel').click(function(){
-		var excel = $('#csv').val().replace(/C:\\fakepath\\/i, '');
-    	var tipoExcel = excel.split(".");
-    	if ($("#csv").val()=="") {mensaje("SELECCIONE UN ARCHIVO EXCEL(2003)","error"); return false;}
-		if ($("#fecha").val()=="") {mensaje("SELECCIONE UNA FECHA","error"); return false;}		
-		if (tipoExcel[1]!="xls"){mensaje("EL ARCHIVO NO ES UN EXCEL 97-2003(xls)","error");return false;}
-		else{
-			$('#subirExcel').hide();
-			$('#loadsubir').show();
-			$('#cargando').show();
-			$('#formExcel').submit();
-		}
-	});
-    $('#subirExcel2').click(function(){
-        var excel = $('#csv2').val().replace(/C:\\fakepath\\/i, '');
-        var tipoExcel = excel.split(".");
-        if ($("#csv2").val()=="") {mensaje("SELECCIONE UN ARCHIVO EXCEL(2003)","error"); return false;}
-        if ($("#fecha2").val()=="") {mensaje("SELECCIONE UNA FECHA","error"); return false;}     
-        if (tipoExcel[1]!="xls"){mensaje("EL ARCHIVO NO ES UN EXCEL 97-2003(xls)","error");return false;}
-        else{
-            $('#subirExcel2').hide();
-            $('#loadsubir2').show();
-            $('#cargando2').show();
-            $('#formExcel2').submit();
-        }
-    });
-	$( ".with-gap" ).change(function() {
-        $('#tipo').val(($('#tipo').val() == 0) ? "1" : "0");
-    });
-    $( "#swBandera" ).change(function() {
-        if ($(this).is(':checked')) {
-            $('#bandera').val(0);
-        }else{
-            $('#bandera').val(1);
-        }        
-    });
-    
-	function mensaje(mensaje,clase) {
-    	var $toastContent = $('<span class="center">'+mensaje+'</span>');
-	    if (clase == 'error'){
-	        return Materialize.toast($toastContent, 3500,'rounded error');
-	    }
-	    return  Materialize.toast($toastContent, 3500,'rounded');    
-	}
-	function getview (id,tipo) {            
+	function getview (id,tipo) {
             $("#modalView").openModal();
             $('#loadDetalle').show();
             if(id !=""){

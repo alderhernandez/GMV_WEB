@@ -11,22 +11,28 @@ class Agenda_controller extends CI_Controller
             redirect(base_url().'index.php/login','refresh');
         }
         $this->load->model('agenda_model');
+        $this->load->model('datos_model');
     }
 
-    public function index()
-    {
+    public function index(){
         $data['ruta'] = $this->agenda_model->traerRutas();
-        
+        $data['agendas'] = $this->datos_model->traerAgenda();
     	$this->load->view('header/header');
         $this->load->view('pages/menu');
         $this->load->view('pages/agenda/agenda',$data);
         $this->load->view('footer/footer');
-        $this->load->view('jsview/js_cobros');
+        $this->load->view('jsview/js_agenda');
     }
-
-    public function searchCobros($f1 = '',$f2 = '')
+    public function guardarComentario()
     {
-        $this->Cobros_model->searchCobros($f1,$f2);
+        $this->agenda_model->guardarComentario($this->input->post('IdPlan'),$this->input->post('Comen'));
+    }
+    public function ajaxCalendario($IdPlan){
+        $this->agenda_model->ajaxCalendario($IdPlan);
+    }
+    public function traerComentario()
+    {
+        $this->agenda_model->traerComentario($this->input->post('IdPlan'));
     }
 }
  ?>

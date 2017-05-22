@@ -71,8 +71,15 @@ class Pedidos_model extends CI_Model
         $this->db->update('pedido',$data);
     }
     public function pedidosPendientes(){
+        if ($this->session->userdata('RolUser') == "2") {
+            $query = $this->db->query("SELECT COUNT(IDPEDIDO) PENDIENTE, (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '3' 
+                                    AND RESPONSABLE = '".$this->session->userdata('UserN')."') PROCESADO,
+                                    (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '2' AND RESPONSABLE = '".$this->session->userdata('UserN')."')
+                                    VISUALIZADO FROM pedido WHERE ESTADO IN ('1', '2') AND RESPONSABLE = '".$this->session->userdata('UserN')."'");
+        }else{
         $query = $this->db->query("SELECT COUNT(IDPEDIDO) PENDIENTE, (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '3') PROCESADO,
                                 (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '2') VISUALIZADO FROM pedido WHERE ESTADO IN ('1', '2')");
+        }
         if ($query->num_rows()>0) {
             return $query->result_array();
         }return 0;

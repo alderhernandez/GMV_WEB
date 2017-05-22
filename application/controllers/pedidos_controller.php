@@ -13,7 +13,7 @@ class Pedidos_controller extends CI_Controller
     }
     public function index(){
         $data['data'] = $this->pedidos_model->pedidos();
-        $data['ruta'] = $this->agenda_model->traerRutas();
+        //$data['ruta'] = $this->agenda_model->traerRutas();
         $data['pendientes'] = $this->pedidos_model->pedidosPendientes();
 
     	$this->load->view('header/header');

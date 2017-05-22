@@ -8,6 +8,7 @@ class Agenda_model extends CI_Model
     public function traerRutas()
     {
     	$this->db->where('Rol',1);
+        $this->db->order_by("Usuario", "asc"); 
     	$query = $this->db->get('usuario');
     	if ($query->num_rows()>0) {
     		return $query->result_array();

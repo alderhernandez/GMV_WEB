@@ -6,26 +6,23 @@
     <div class="mdl-grid demo-content">       
         <div class="row TextColor center">INICIO</div>
         		
-       	<!--<div class="row">
-	        <div class="col s12 m12 l12">
-	          <div class="card blue-grey darken-1">
-	            <div class="card-content white-text">
-	              <div id="container" style="width:100%; height:600px;"></div>
+    <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <div id="container" style="height: 300px"></div>
+            </div>
+          </div>
+        </div>
 
-	            </div>
-	          </div>
-	        </div>
-	    </div>
-	    <div class="row">
-	    	<div class="col s12 m12 l12">
-	          <div class="card blue-grey darken-1">
-	            <div class="card-content white-text">
-	              <div id="container2" style="width:100%; height:600px;"></div>
-
-	            </div>
-	          </div>
-	        </div>
-	    </div>-->
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <div id="container2" style="height: 300px"></div>
+            </div>
+          </div>
+        </div>
+    </div>
   		
 </div>
 </main>

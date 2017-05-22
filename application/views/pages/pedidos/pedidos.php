@@ -12,6 +12,21 @@
             <label for="searchDatos">BUSCAR</label>
         </div>
     </div>
+    <div class="row right">
+        <div class="col s3 left">
+            <select class="regular" id="selectRuta">
+                <option value="" disabled selected>Seleccione la ruta...</option>
+                <?php 
+                    if (!($ruta)) {}
+                    else{
+                        foreach ($ruta as $key) {
+                            echo "<option value=".$key['Usuario'].">".$key['Usuario']."</option>";
+                        }                               
+                    }
+                ?>
+            </select>
+        </div>
+    </div>
             
     <div class="row" id="monitoreo1" style="overflow-y:scroll;">
         <table id="tblPedidos" class=" TblDatos">
@@ -19,6 +34,7 @@
                 <tr>
                     <th>ID PEDIDO</th>
                     <th>VENDEDOR</th>
+                    <th>RESPONSABLE</th>
                     <th>CLIENTE</th>
                     <th>NOMBRE CLIENTE</th>
                     <th>FECHA</th>
@@ -35,6 +51,7 @@
                                 "<tr>
                                     <td class='negra'>".$key['IDPEDIDO']."</td>
                                     <td>".$key['VENDEDOR']."</td>
+                                    <td>".$key['RESPONSABLE']."</td>
                                     <td>".$key['CLIENTE']."</td>
                                     <td>".$key['NOMBRE']."</td>
                                     <td>".$key['FECHA_CREADA']."</td>
@@ -50,7 +67,6 @@
                                             $estado = '<i class="green-text material-icons">done_all</i>';
                                             break;
                                         default:
-                                            
                                             break;
                                     }    
                                 echo"<td class='regular'>".$estado."</td>";
@@ -63,8 +79,36 @@
         </table>
     </div>
 </div>
+
+    <div class="row">
+        <div class="col s6 m3 offset-m2">
+          <div class="card">
+            <div class="card-action center">
+              <p href="#">PEDIDOS PENDIENTES: </p>
+              <p class="negra"><?php echo $pendientes[0]['PENDIENTE']; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m3">
+          <div class="card">
+            <div class="card-action center">
+              <p href="#">PEDIDOS PROCESADOS: </p>
+              <p class="negra"><?php echo $pendientes[0]['PROCESADO']; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m3">
+          <div class="card">
+            <div class="card-action center">
+              <p href="#">PEDIDOS VISUALIZADOS: </p>
+              <p class="negra"><?php echo $pendientes[0]['VISUALIZADO']; ?></p>
+            </div>
+          </div>
+        </div>
+    </div>
 </main>  
 <!-- FIN CONTENIDO PRINCIPAL -->
+
 
 <div id="modalDetalleFact" class="modal">
     <div class="modal-content">
@@ -103,10 +147,19 @@
                 </table>
             </div>
         </div>
-        <div class="row center valign-wrapper">
-          <div class="col s2 offset-s5 Mcolor center">
-            <a href="#" id="btnProcesar" class="Procesar waves-effect btn">procesar</a>
-          </div>
+        <div class="row">
+            <div class="col s12 m12 l12 Mcolor">
+                <textarea id="observaciones" disabled class="negra mayuscula materialize-textarea observaciones"></textarea>
+            </div>
+        </div>
+        <div class="row center valign-wrapper">            
+            <?php 
+            if ($this->session->userdata('RolUser') == '2' || $this->session->userdata('RolUser') == '5') {
+                echo'<div class="col s2 offset-s5 Mcolor center">
+                        <a href="#" id="btnProcesar" class="Procesar waves-effect btn">procesar</a>
+                    </div>';
+                }
+            ?>
           <div class="col s3 Mcolor valign-wrapper left">
             <p class="negra">TOTAL: </p>
             <p id="total" class="bold breadcrumbs-title">0.00</p>

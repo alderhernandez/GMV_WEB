@@ -17,9 +17,8 @@
                 "emptyTable": "NO HAY DATOS DISPONIBLES",
                 "search":     "BUSCAR"
             }
-        });
-
-	});
+    });
+});
     $('#searchDatos').on( 'keyup', function () {
             var table = $('#tblPedidos').DataTable();
             table.search(this.value).draw();
@@ -73,11 +72,22 @@
                 $("#datosPedido").show();
                 var total=0;
                     obj = $('#TbDetalleFactura').DataTable();
-                    obj.rows().data().each( function (index,value) {
-                        total += obj.row(value).data().TOTAL.replace(",", ".");
+                    obj.rows().data().each( function (index,value) {                        
+                        var subtotal = obj.row(value).data().TOTAL.replace(",", "");
+                        subtotal = parseFloat(obj.row(value).data().TOTAL.replace(",", ""));
+                        //total += obj.row(value).data().TOTAL.replace(",", "");
+                        total += subtotal;
                     });
                 $('#total').text(addCommas(total)+" C$");
-            }).dataTable();        
+            }).dataTable();
+            $.ajax({
+                url: "ajaxPedidoComen/"+id,
+                async:true,
+                success:
+                function(comen){
+                        $("#observaciones").html(comen);
+                    }
+                });
     }
     $("#btnProcesar").click(function(){
         if ($("#codPedido").text().length>10 && $("#codPedido").text()!=""){
@@ -94,7 +104,7 @@
             },
             function(isConfirm){
               if (isConfirm) {
-                 $.ajax({
+                $.ajax({
                 url: "ajaxUpdatePedido/3/"+ $("#codPedido").text(),
                 type: "post",
                 async:true,
@@ -103,7 +113,7 @@
                     swal("Procesado!", "El pedido ha sido marcado como procesado.", "success");
                     setInterval(function(){ $(location).attr('href',"pedidos"); }, 1500);                    
                     }
-                });                
+                });
               }
             });
         }
@@ -125,4 +135,8 @@
         idTabla.clear();
         idTabla.draw();
     }
+    $( "#selectRuta" ).change(function() {
+        var table = $('#tblPedidos').DataTable();
+        table.columns(1).search($(this).val()).draw();
+    });
 </script>

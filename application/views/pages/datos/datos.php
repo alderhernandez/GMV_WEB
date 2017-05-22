@@ -23,7 +23,7 @@
                     if (!($ruta)) {}
                     else{
                         foreach ($ruta as $key) {
-                            echo "<option value=".$key['IdUser'].">".$key['Usuario']."</option>";
+                            echo "<option value=".$key['Usuario'].">".$key['Usuario']."</option>";
                         }                               
                     }
                 ?>
@@ -55,7 +55,7 @@
                                     <td class=''>".$index['Vendedor']."</td>
                                     <td class='negra'>".date('d-m-Y',strtotime($index['Inicia']))."</td>
                                     <td class='negra'>".date('d-m-Y',strtotime($index['Termina']))."</td>
-                              </tr>";
+                            </tr>";
                     }
                 }
             ?>

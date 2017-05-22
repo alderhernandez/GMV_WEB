@@ -3,7 +3,7 @@ $(document).ready(function() {
 	$('#searchDatos').on( 'keyup', function () {
 		var table = $('#tblDatos').DataTable();
 		table.search(this.value).draw();
-	});    
+	});
 });
 	$('#subirExcel').click(function(){
 		var excel = $('#csv').val().replace(/C:\\fakepath\\/i, '');
@@ -111,4 +111,9 @@ $(document).ready(function() {
             });
         }else{mensaje("SELECCIONE UN RANGO DE FECHAS","error");}
 	}
+
+    $( "#selectRuta" ).change(function() {
+        var table = $('#tblAgenda').DataTable();
+        table.columns(0).search($(this).val()).draw();
+    });
 </script>

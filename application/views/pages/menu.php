@@ -57,6 +57,13 @@
                            <a href="#modalOpciones" class="modal-trigger"><li href="#"><i class="material-icons">settings</i> opciones</li></a>
                            <a href="salir"><li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
                 break;
+                case '6':
+                  $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inicio</li></a>                           
+                           <a href="pedidos"><li href="pedidos"><i class="material-icons">equalizer</i> pedidos</li></a>
+                           <a href="cobros"><li href="cobros"><i class="material-icons">monetization_on</i> cobros</li></a>                           
+                           <a href="#modalOpciones" class="modal-trigger"><li href="#"><i class="material-icons">settings</i> opciones</li></a>
+                           <a href="salir"><li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
+                break;
                 default:
                   $menu = '<a href="salir"> <li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
                   break;

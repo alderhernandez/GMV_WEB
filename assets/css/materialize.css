@@ -2668,7 +2668,7 @@ a {
 }
 a:hover
 {
-  color: #866FD5;
+  /*color: #866FD5;*/
   transition: 0.5s;
 }
 
@@ -2702,8 +2702,8 @@ ul li {
 }
 
 .z-depth-1/*, nav*/, .card-panel, .card,  .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
- /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
-  border: 1px solid #1f0a71;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  /*border: 1px solid #1f0a71;*/
 }
 
 .z-depth-1-half, .btn:hover, .btn-large:hover, .btn-floating:hover {

@@ -11,11 +11,14 @@ class Cobros_controller extends CI_Controller
             redirect(base_url().'index.php/login','refresh');
         }
         $this->load->model('Cobros_model');
+        $this->load->model('agenda_model');
     }
 
     public function index()
     {
     	$data['data'] = $this->Cobros_model->cobros();
+        $data['ruta'] = $this->agenda_model->traerRutas();
+
     	$this->load->view('header/header');
         $this->load->view('pages/menu');
         $this->load->view('pages/cobros/cobros',$data);

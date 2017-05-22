@@ -21,7 +21,21 @@
            <a href="#" id="searchC"><i class="material-icons">search</i></a>
         </div>
     </div>
-            
+    <div class="row right">
+        <div class="col s6 l2 left">
+            <select class="regular" id="selectRuta">
+                <option value="" disabled selected>Seleccione la ruta...</option>
+                <?php 
+                    if (!($ruta)) {}
+                    else{
+                        foreach ($ruta as $key) {
+                            echo "<option value=".$key['Usuario'].">".$key['Usuario']."</option>";
+                        }                               
+                    }
+                ?>
+            </select>
+        </div>
+    </div>
     <div class="row" id="monitoreo1">
         <table id="tblCobros" class=" TblDatos">
             <thead>

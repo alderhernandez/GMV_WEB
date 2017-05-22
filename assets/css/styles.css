@@ -1272,3 +1272,6 @@ label>select {
   max-height: 50%;
   height: 50%;
 }
+.highcharts-credits{
+  display: none!important;
+}

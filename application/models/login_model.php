@@ -29,7 +29,7 @@ class Login_model extends CI_Model
     public function cambiarPass($pass,$id)
     {
         $datos = array('Password' => $pass);
-        $this->db->where('UsuarioID',$id);
+        $this->db->where('IdUser',$id);
         $query = $this->db->update('usuario',$datos);
         if ($query) {
             return 1;

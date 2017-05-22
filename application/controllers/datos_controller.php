@@ -44,19 +44,19 @@ class Datos_controller extends CI_Controller
         $this->datos_model->guardarAgenda($nombre,$ruta,$f1,$f2);
             for ($i=10; $i <= 30; $i++){
                 if ($data->sheets[0]['cells'][$i][1]!="") {
-                    $d1 .=$data->sheets[0]['cells'][$i][1]."-";
+                    $d1 .=$this->concat($data->sheets[0]['cells'][$i][1])."-";
                 }
                 if ($data->sheets[0]['cells'][$i][2]!="") {
-                    $d2 .=$data->sheets[0]['cells'][$i][2]."-";
+                    $d2 .=$this->concat($data->sheets[0]['cells'][$i][2])."-";
                 }
                 if ($data->sheets[0]['cells'][$i][3]!="") {
-                    $d3 .=$data->sheets[0]['cells'][$i][3]."-";
+                    $d3 .=$this->concat($data->sheets[0]['cells'][$i][3])."-";
                 }
                 if ($data->sheets[0]['cells'][$i][4]!="") {
-                    $d4 .=$data->sheets[0]['cells'][$i][4]."-";
+                    $d4 .=$this->concat($data->sheets[0]['cells'][$i][4])."-";
                 }
                 if ($data->sheets[0]['cells'][$i][5]!="") {
-                    $d5 .=$data->sheets[0]['cells'][$i][5]."-";
+                    $d5 .=$this->concat($data->sheets[0]['cells'][$i][5])."-";
                 }
                 if ($data->sheets[0]['cells'][$i][6]!="") {
                     $comentarios .=$data->sheets[0]['cells'][$i][6]."|-|";
@@ -70,6 +70,28 @@ class Datos_controller extends CI_Controller
         }
         $this->datos_model->guardarDetAgenda($d1,$d2,$d3,$d4,$d5,$comentarios,$ruta);
         redirect('carga','refresh');
+    }
+
+    public function concat($IdCliente){
+
+            switch (strlen($IdCliente)) {
+            case '1':
+                $IdCliente  ="0000".$IdCliente;
+            break;
+            case '2':
+                $IdCliente  ="000".$IdCliente;
+            break;
+            case '3':
+                $IdCliente  ="00".$IdCliente;
+            break;
+            case '4':
+                $IdCliente  ="0".$IdCliente;
+            break;
+            case '5':
+                $IdCliente  =$IdCliente;
+            break;
+        }
+        return $IdCliente;
     }
 }
 ?>

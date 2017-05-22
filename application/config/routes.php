@@ -14,7 +14,8 @@ $route['cambiarPass'] = 'login_controller/cambiarPass';
 
 // RUTAS MENU
 $route['Main'] = 'main_controller';
-
+$route['ajaxGrafica']='pedidos_controller/ajaxGrafica';
+$route['ajaxGraficaColum']='pedidos_controller/ajaxGraficaColum';
 
 /* PEDIDOS */
 $route['pedidos'] = 'pedidos_controller';
@@ -22,6 +23,7 @@ $route['detallepedido/(:any)'] = 'pedidos_controller/detallePedido/$1';
 $route['ajaxDetallePedido']='pedidos_controller/cabeceraPedido';
 $route['ajaxPedido/(:any)']='pedidos_controller/DetallePedido/$1';
 $route['ajaxUpdatePedido/(:any)/(:any)']='pedidos_controller/UpdateEstado/$1/$2';
+$route['ajaxPedidoComen/(:any)']='pedidos_controller/ajaxPedidoComen/$1';
 
 /* COBROS */
 $route['cobros'] = 'cobros_controller';

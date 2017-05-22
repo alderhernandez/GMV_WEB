@@ -12,7 +12,7 @@
             <label for="searchDatos">BUSCAR</label>
         </div>
     </div>
-    <div class="row right">
+    <!--<div class="row right">
         <div class="col s3 left">
             <select class="regular" id="selectRuta">
                 <option value="" disabled selected>Seleccione la ruta...</option>
@@ -26,7 +26,7 @@
                 ?>
             </select>
         </div>
-    </div>
+    </div>-->
             
     <div class="row" id="monitoreo1" style="overflow-y:scroll;">
         <table id="tblPedidos" class=" TblDatos">

@@ -3,6 +3,7 @@
 	$('#tblPedidos').DataTable({
             "scrollCollapse": true,
             //"paging":         false,
+            "order": [5,'desc'],
             "info":    false,            
             "lengthMenu": [[20,30,50,100,-1], [20,30,50,100,"Todo"]],
             "language": {
@@ -25,9 +26,12 @@
         });
     function getview(id,cliente,vendedor,estado) {
         $("#btnProcesar").show();
-        if (estado == 3) {
+        $("#btnAnular").show();
+        if (estado >= 3) {
             $("#btnProcesar").hide();
-        }        
+            $("#btnAnular").hide();
+        }
+        
         $('#modalDetalleFact').openModal();
         $("#datosPedido").hide();
         $('#loadIMG').show();
@@ -78,7 +82,7 @@
                         //total += obj.row(value).data().TOTAL.replace(",", "");
                         total += subtotal;
                     });
-                $('#total').text(addCommas(total)+" C$");
+                $('#total').text(" C$ "+addCommas(total));
             }).dataTable();
             $.ajax({
                 url: "ajaxPedidoComen/"+id,
@@ -117,6 +121,41 @@
               }
             });
         }
+    });
+    $("#btnAnular").click(function(){
+        swal({
+          title: "ANULACION",
+          text: "Escriba una razon:",
+          type: "input",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          animation: "slide-from-top",
+          inputPlaceholder: "Razon de la anulacion"
+        },
+        function(inputValue){
+          if (inputValue === false) return false;
+          
+          if (inputValue === "") {
+            swal.showInputError("Necesita escribir una razon!");
+            return false
+          }
+          swal("Anulado!", "Esperee..: " + inputValue, "success");
+          var form_data = {
+                comentario: inputValue,
+                idPedido: $("#codPedido").text()
+          };
+          $.ajax({
+                url: "ajaxAnulacion",
+                type: "post",
+                async:true,
+                data: form_data,
+                success:
+                function(clsAplicados){
+                    swal("Procesado!", "El pedido ha sido marcado como anulado.", "success");
+                    setInterval(function(){ $(location).attr('href',"pedidos"); }, 1400);                    
+                    }
+                });
+        });
     });
     function addCommas(nStr){
         nStr += '';

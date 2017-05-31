@@ -31,7 +31,7 @@ class Pedidos_model extends CI_Model
         $query= $this->db->get('pedido_detalle');
         if($query->num_rows() > 0){
             
-            $update = $this->db->query("SELECT ESTADO FROM pedido WHERE IDPEDIDO='".$id."' AND ESTADO = '3' ");
+            $update = $this->db->query("SELECT ESTADO FROM pedido WHERE IDPEDIDO='".$id."' AND ESTADO IN ('3','4')");
 
             
             if ($update->num_rows() == 0) {
@@ -121,6 +121,21 @@ class Pedidos_model extends CI_Model
         $query = $this->db->get('pedido');
         if ($query->num_rows()>0) {
             echo strtoupper($query->result_array()[0]['COMENTARIO']);
+        }
+    }
+    public function ajaxAnulacion($idPedido,$comentario)
+    {
+        if ($this->session->userdata('RolUser') == "2") {
+        $query = $this->db->query("UPDATE pedido SET ESTADO = '4' WHERE IDPEDIDO = '".$idPedido."'");
+        if ($query) {
+            $datos = array('IDPEDIDO' => $idPedido,
+                            'IDUSER' => $this->session->userdata('id'),
+                            'COMENTARIO' => $comentario,
+                            'FECHA' => date('Y-m-d H:i:s') 
+                        );
+            $query = $this->db->insert('anulaciones',$datos);
+        }
+            echo $query;
         }
     }
 }

@@ -66,7 +66,11 @@
                                         case '3':
                                             $estado = '<i class="green-text material-icons">done_all</i>';
                                             break;
+                                        case '4':
+                                            $estado = '<i class="red-text material-icons">done_all</i>';
+                                            break;
                                         default:
+                                            $estado = 'ERROR AL OBTENER ESTADO';
                                             break;
                                     }    
                                 echo"<td class='regular'>".$estado."</td>";
@@ -155,8 +159,11 @@
         <div class="row center valign-wrapper">            
             <?php 
             if ($this->session->userdata('RolUser') == '2' || $this->session->userdata('RolUser') == '5') {
-                echo'<div class="col s2 offset-s5 Mcolor center">
+                echo'<div class="col s2 offset-s4 Mcolor center">
                         <a href="#" id="btnProcesar" class="Procesar waves-effect btn">procesar</a>
+                    </div>
+                    <div class="col s2 Mcolor noMargen center">
+                        <a href="#" id="btnAnular" class="Procesar waves-effect btn red">anulacion</a>
                     </div>';
                 }
             ?>

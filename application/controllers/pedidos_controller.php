@@ -49,5 +49,9 @@ class Pedidos_controller extends CI_Controller
     {
         $this->pedidos_model->ajaxPedidoComen($id);
     }
+    public function ajaxAnulacion()
+    {
+        $this->pedidos_model->ajaxAnulacion($this->input->post('idPedido'),$this->input->post('comentario'));
+    }
 }
 ?>

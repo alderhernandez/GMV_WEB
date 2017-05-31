@@ -24,6 +24,8 @@ $route['ajaxDetallePedido']='pedidos_controller/cabeceraPedido';
 $route['ajaxPedido/(:any)']='pedidos_controller/DetallePedido/$1';
 $route['ajaxUpdatePedido/(:any)/(:any)']='pedidos_controller/UpdateEstado/$1/$2';
 $route['ajaxPedidoComen/(:any)']='pedidos_controller/ajaxPedidoComen/$1';
+$route['ajaxAnulacion']='pedidos_controller/ajaxAnulacion';
+
 
 /* COBROS */
 $route['cobros'] = 'cobros_controller';

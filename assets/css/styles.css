@@ -1275,3 +1275,6 @@ label>select {
 .highcharts-credits{
   display: none!important;
 }
+#modalDetalleFact{
+  min-height: 85%;
+}

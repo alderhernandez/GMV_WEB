@@ -3,7 +3,9 @@
 	$('#tblPedidos').DataTable({
             "scrollCollapse": true,
             //"paging":         false,
-            "order": [5,'desc'],
+            //"order": [5,'desc'],
+            "order": [],
+            "ordering": false,
             "info":    false,            
             "lengthMenu": [[20,30,50,100,-1], [20,30,50,100,"Todo"]],
             "language": {
@@ -25,6 +27,22 @@
             table.search(this.value).draw();
         });
     function getview(id,cliente,vendedor,estado) {
+        var estadoText;
+        switch(estado){
+            case "1":
+                estadoText = "RECIBIDO";
+                break;
+            case "2":
+                estadoText = "VISUALIZADO";
+                break;
+            case "3":
+                estadoText = "PROCESADO";
+                break;
+            default:
+                estadoText = "ANULADO";
+        }
+        $("#spanEstado").text(estadoText);
+
         $("#btnProcesar").show();
         $("#btnAnular").show();
         if (estado >= 3) {

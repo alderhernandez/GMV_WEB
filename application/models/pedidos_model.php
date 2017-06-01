@@ -12,7 +12,7 @@ class Pedidos_model extends CI_Model
             $query = $this->db->query("SELECT RUTA FROM view_misRutas
                                         WHERE IdResponsable = '".$this->session->userdata('id')."'");
             if ($query->num_rows()>0) {
-                $query = $this->db->query("SELECT * FROM pedido WHERE VENDEDOR IN (".$query->result_array()[0]['RUTA'].")");                
+                $query = $this->db->query("SELECT * FROM pedido WHERE VENDEDOR IN (".$query->result_array()[0]['RUTA'].") ORDER BY ESTADO DESC");                
             }
         }else{
             $query = $this->db->get('pedido');

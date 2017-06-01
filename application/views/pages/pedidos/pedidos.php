@@ -6,27 +6,37 @@
 <div class="contenedor">        
     <div class="noMargen row TextColor center"><div class="col s12 m8 l12 offset-m1">PEDIDOS</div></div>
     
+    <!--<div class="noMargen Buscar row column">
+        <div class="input-field col s6 m4 l4 offset-l2 center">
+            <input  id="searchDatos" type="text"class="validate">
+            <label for="searchDatos">BUSCAR</label>
+        </div>
+        <div class="input-field col s3 m3 l2  center">
+            <p>
+              <input name="group1" type="radio" id="test1" />
+              <label for="test1">PENDIENTES</label>
+            </p>
+        </div>
+        <div class="input-field col s3 m3 l2  center">
+            <p>
+              <input name="group1" type="radio" id="test2" />
+              <label for="test2">PROCESADOS</label>
+            </p>
+        </div>
+        <div class="input-field col s3 m3 l1  center">
+            <p>
+              <input name="group1" type="radio" id="test3" />
+              <label for="test3">ANULADOS</label>
+            </p>
+        </div>
+    </div>-->
+    
     <div class="noMargen Buscar row column">
         <div class="input-field col s6 m4 l4 offset-l4 center">
             <input  id="searchDatos" type="text"class="validate">
             <label for="searchDatos">BUSCAR</label>
         </div>
     </div>
-    <!--<div class="row right">
-        <div class="col s3 left">
-            <select class="regular" id="selectRuta">
-                <option value="" disabled selected>Seleccione la ruta...</option>
-                <?php 
-                    if (!($ruta)) {}
-                    else{
-                        foreach ($ruta as $key) {
-                            echo "<option value=".$key['Usuario'].">".$key['Usuario']."</option>";
-                        }                               
-                    }
-                ?>
-            </select>
-        </div>
-    </div>-->
             
     <div class="row" id="monitoreo1" style="overflow-y:scroll;">
         <table id="tblPedidos" class=" TblDatos">
@@ -85,7 +95,7 @@
 </div>
 
     <div class="row">
-        <div class="col s6 m3 offset-m2">
+        <div class="col s6 m3">
           <div class="card">
             <div class="card-action center">
               <p href="#">PEDIDOS PENDIENTES: </p>
@@ -109,6 +119,38 @@
             </div>
           </div>
         </div>
+        <div class="col s6 m3">
+          <div class="card">
+            <div class="card-action center">
+              <div class="row noMargen">
+                <table>
+                    <thead>
+                        <th>ICONO</th>
+                        <th>DESCRIPCION</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="material-icons">check</i></td>
+                            <td>PEDIDO RECIBIDO</td>
+                        </tr>
+                        <tr>
+                            <td><i class="material-icons">done_all</i></td>
+                            <td>PEDIDO VISUALIZADO</td>
+                        </tr>
+                        <tr>
+                            <td><i class="green-text material-icons">done_all</i></td>
+                            <td>PEDIDO PROCESADO</td>
+                        </tr>
+                        <tr>                            
+                            <td><i class="red-text material-icons">done_all</i></td>
+                            <td>PEDIDO ANULADO</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 </main>  
 <!-- FIN CONTENIDO PRINCIPAL -->
@@ -125,6 +167,7 @@
         <h6  class="TextColor noMargen center negra breadcrumbs-title">PEDIDO: <span class="bold" id="codPedido">0.00</span></h6>
         <h6  class="TextColor noMargen center negra breadcrumbs-title">CLIENTE: <span class="bold" id="codCliente">0.00</span></h6>
         <h6  class="TextColor noMargen center negra breadcrumbs-title">VENDEDOR: <span class="bold" id="codVendedor">0.00</span></h6>
+        <h6  class="TextColor noMargen center negra breadcrumbs-title">ESTADO: <span class="bold" id="spanEstado"></span></h6>
       </div>
         <div class="row">
             <div class="col s12 center">

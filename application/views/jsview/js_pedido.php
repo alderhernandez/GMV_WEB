@@ -4,8 +4,6 @@
             "scrollCollapse": true,
             //"paging":         false,
             //"order": [5,'desc'],
-            "order": [],
-            "ordering": false,
             "info":    false,            
             "lengthMenu": [[20,30,50,100,-1], [20,30,50,100,"Todo"]],
             "language": {

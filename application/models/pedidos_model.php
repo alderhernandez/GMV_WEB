@@ -152,8 +152,11 @@ class Pedidos_model extends CI_Model
         $consulta = "SELECT * FROM pedido ";
         if($tipo != '7'){
             $consulta .= "WHERE ESTADO = '".$tipo."' ";
-        }if($f1 != '' && $f2 != ''){
-            $consulta .= "AND FECHA_CREADA BETWEEN '".date('Y-m-d',strtotime($f1))."' AND '".date('Y-m-d',strtotime($f2))."' ";
+        }else{
+            $consulta .= "WHERE ESTADO IN ('1','2','3','4') ";
+        }
+            if($f1 != '' && $f2 != ''){
+            $consulta .= "AND FECHA_CREADA BETWEEN '".date('Y-m-d H:i:s',strtotime($f1))."' AND '".date('Y-m-d H:i:s',strtotime($f2." 23:59:59"))."' ";
         }
         if ($this->session->userdata('RolUser')==2) {
             $query = $this->db->query("SELECT RUTA FROM view_misRutas

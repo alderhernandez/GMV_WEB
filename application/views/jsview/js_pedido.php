@@ -223,7 +223,7 @@
                 "bPaginate": false,
                 "paging": true,
                 "pagingType": "full_numbers",
-                "lengthMenu": [[10, -1], [10, "Todo"]],
+                "lengthMenu": [[20,30,50,100,-1], [20,30,50,100,"Todo"]],
                 "language": {
                     "emptyTable": "No hay datos disponibles en la tabla",
                     "lengthMenu": '_MENU_ ',

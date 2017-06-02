@@ -6,37 +6,24 @@
 <div class="contenedor">        
     <div class="noMargen row TextColor center"><div class="col s12 m8 l12 offset-m1">PEDIDOS</div></div>
     
-    <!--<div class="noMargen Buscar row column">
-        <div class="input-field col s6 m4 l4 offset-l2 center">
-            <input  id="searchDatos" type="text"class="validate">
-            <label for="searchDatos">BUSCAR</label>
-        </div>
-        <div class="input-field col s3 m3 l2  center">
-            <p>
-              <input name="group1" type="radio" id="test1" />
-              <label for="test1">PENDIENTES</label>
-            </p>
-        </div>
-        <div class="input-field col s3 m3 l2  center">
-            <p>
-              <input name="group1" type="radio" id="test2" />
-              <label for="test2">PROCESADOS</label>
-            </p>
-        </div>
-        <div class="input-field col s3 m3 l1  center">
-            <p>
-              <input name="group1" type="radio" id="test3" />
-              <label for="test3">ANULADOS</label>
-            </p>
-        </div>
-    </div>-->
-    
     <div class="noMargen Buscar row column">
-        <div class="input-field col s6 m4 l4 offset-l4 center">
+        <div class="input-field col s6 m2 l2 center offset-l1">
             <input  id="searchDatos" type="text"class="validate">
             <label for="searchDatos">BUSCAR</label>
         </div>
+        <div class="input-field col s6 m2 l2 center">
+            <input  id="fecha1" type="text"class="datepicker1">
+            <label for="fecha1">FECHA 1</label>
+        </div>
+        <div class="input-field col s6 m2 l2 center">
+            <input  id="fecha2" type="text"class="datepicker1">
+            <label for="fecha2">FECHA 2</label>
+        </div>
+        <div class="input-field col s3 m3 l2">
+        </div>        
     </div>
+    
+    
             
     <div class="row" id="monitoreo1" style="overflow-y:scroll;">
         <table id="tblPedidos" class=" TblDatos">
@@ -66,7 +53,7 @@
                                     <td>".$key['NOMBRE']."</td>
                                     <td>".$key['FECHA_CREADA']."</td>
                                     <td>".number_format($key['MONTO'],4)."</td>";
-                                switch ($key['ESTADO']) {
+                                /*switch ($key['ESTADO']) {
                                         case '1':
                                             $estado = '<i class="material-icons">check</i>';
                                             break;
@@ -82,7 +69,24 @@
                                         default:
                                             $estado = 'ERROR AL OBTENER ESTADO';
                                             break;
-                                    }    
+                                    }*/
+                                    switch ($key['ESTADO']) {
+                                        case '1':
+                                            $estado = 'PENDIENTE';
+                                            break;
+                                        case '2':
+                                            $estado = 'VISUALIZADO';
+                                            break;
+                                        case '3':
+                                            $estado = 'PROCESADO';
+                                            break;
+                                        case '4':
+                                            $estado = 'ANULADO';
+                                            break;
+                                        default:
+                                            $estado = 'ERROR AL OBTENER ESTADO';
+                                            break;
+                                    }
                                 echo"<td class='regular'>".$estado."</td>";
                                 echo  "<td class='regular'><a  onclick='getview(".'"'.$key['IDPEDIDO'].'"'.",".'"'.$key['NOMBRE']." ".$key['CLIENTE'].'"'.",".'"'.$key['VENDEDOR'].'"'.",".'"'.$key['ESTADO'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
                                 </tr>";

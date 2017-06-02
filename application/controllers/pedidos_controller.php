@@ -15,7 +15,7 @@ class Pedidos_controller extends CI_Controller
         $data['data'] = $this->pedidos_model->pedidos();
         //$data['ruta'] = $this->agenda_model->traerRutas();
         $data['pendientes'] = $this->pedidos_model->pedidosPendientes();
-
+        //print_r($data['data']);
     	$this->load->view('header/header');
         $this->load->view('pages/menu');
         $this->load->view('pages/pedidos/pedidos',$data);
@@ -52,6 +52,10 @@ class Pedidos_controller extends CI_Controller
     public function ajaxAnulacion()
     {
         $this->pedidos_model->ajaxAnulacion($this->input->post('idPedido'),$this->input->post('comentario'));
+    }
+    public function ajaxPedidoSearch()
+    {
+        $this->pedidos_model->ajaxPedidoSearch();
     }
 }
 ?>

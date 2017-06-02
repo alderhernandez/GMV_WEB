@@ -124,7 +124,7 @@ class Pedidos_model extends CI_Model
         }
     }
     public function ajaxAnulacion($idPedido,$comentario){
-        if ($this->session->userdata('RolUser') == "2") {
+        if ($this->session->userdata('RolUser') == "2" || $this->session->userdata('RolUser') == "3") {
         $query = $this->db->query("UPDATE pedido SET ESTADO = '4' WHERE IDPEDIDO = '".$idPedido."'");
         if ($query) {
             $datos = array('IDPEDIDO' => $idPedido,

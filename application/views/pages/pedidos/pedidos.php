@@ -74,16 +74,16 @@
                                     }
                                     switch ($key['ESTADO']) {
                                         case '1':
-                                            $estado = 'PENDIENTE';
+                                            $estado = '<p class="noMargen">PENDIENTE</p>';
                                             break;
                                         case '2':
-                                            $estado = 'VISUALIZADO';
+                                            $estado = '<p class="noMargen">VISUALIZADO</p>';
                                             break;
                                         case '3':
-                                            $estado = 'PROCESADO';
+                                            $estado = '<p class="green-text noMargen">PROCESADO</p>';
                                             break;
                                         case '4':
-                                            $estado = 'ANULADO';
+                                            $estado = '<p class="red-text noMargen">ANULADO</p>';
                                             break;
                                         default:
                                             $estado = 'ERROR AL OBTENER ESTADO';

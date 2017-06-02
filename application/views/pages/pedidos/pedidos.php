@@ -7,7 +7,7 @@
     <div class="noMargen row TextColor center"><div class="col s12 m8 l12 offset-m1">PEDIDOS</div></div>
     
     <div class="noMargen Buscar row column">
-        <div class="input-field col s6 m2 l2 center offset-l1">
+        <div class="input-field col s6 m2 l4 center offset-l2">
             <input  id="searchDatos" type="text"class="validate">
             <label for="searchDatos">BUSCAR</label>
         </div>

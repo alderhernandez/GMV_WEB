@@ -28,9 +28,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/styles.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery.dataTables.css">
-    <!--<script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>-->
+    
     
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery.dataTables.css">
     <!--<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.css">-->

@@ -38,6 +38,7 @@
                     <th>FECHA</th>
                     <th>MONTO</th>
                     <th>ESTADO</th>
+                    <th></th>
                     <th>VER</th>
                 </tr>
             </thead>
@@ -54,23 +55,23 @@
                                     <td>".$key['NOMBRE']."</td>
                                     <td>".$key['FECHA_CREADA']."</td>
                                     <td>".number_format($key['MONTO'],4)."</td>";
-                                /*switch ($key['ESTADO']) {
+                                switch ($key['ESTADO']) {
                                         case '1':
-                                            $estado = '<i class="material-icons">check</i>';
+                                            $estado2 = '<i class="material-icons">check</i>';
                                             break;
                                         case '2':
-                                            $estado = '<i class="material-icons">done_all</i>';
+                                            $estado2 = '<i class="material-icons">done_all</i>';
                                             break;
                                         case '3':
-                                            $estado = '<i class="green-text material-icons">done_all</i>';
+                                            $estado2 = '<i class="green-text material-icons">done_all</i>';
                                             break;
                                         case '4':
-                                            $estado = '<i class="red-text material-icons">done_all</i>';
+                                            $estado2 = '<i class="red-text material-icons">done_all</i>';
                                             break;
                                         default:
-                                            $estado = 'ERROR AL OBTENER ESTADO';
+                                            $estado2 = 'ERROR AL OBTENER ESTADO';
                                             break;
-                                    }*/
+                                    }
                                     switch ($key['ESTADO']) {
                                         case '1':
                                             $estado = 'PENDIENTE';
@@ -89,6 +90,7 @@
                                             break;
                                     }
                                 echo"<td class='regular'>".$estado."</td>";
+                                echo"<td class='regular'>".$estado2."</td>";
                                 echo  "<td class='regular'><a  onclick='getview(".'"'.$key['IDPEDIDO'].'"'.",".'"'.$key['NOMBRE']." ".$key['CLIENTE'].'"'.",".'"'.$key['VENDEDOR'].'"'.",".'"'.$key['ESTADO'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>
                                 </tr>";
                             }

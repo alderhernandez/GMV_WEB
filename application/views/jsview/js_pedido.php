@@ -105,9 +105,17 @@
                 async:true,
                 success:
                 function(comen){
-                        $("#observaciones").html(comen);
-                    }
-                });
+                    $("#observaciones").html(comen);
+                }
+            });
+            $.ajax({
+                url: "ajaxPedidoComenAnu/"+id,
+                async:true,
+                success:
+                function(comen){
+                    $("#anulacion").html(comen);
+                }
+            });
     }
     $("#btnProcesar").click(function(){
         if ($("#codPedido").text().length>10 && $("#codPedido").text()!=""){
@@ -196,16 +204,19 @@
     });
     $("#idBuscar").click(function(){
         limpiarTabla(tblPedidos);
-        var form_data = {
-            frp: "ekisde"
-        };
-        
-
-        
+        var f1 = $("#fecha1").val();
+        var f2 = $("#fecha2").val();
+        var tipo = $("#selectBuscar").val();
+        $("#loadPedido").show();
         $('#tblPedidos').DataTable({
-            ajax: "ajaxPedidoSearch",
-            "data" : {
-                "user_id": 451
+            "ajax": {
+                'type': 'POST',
+                'url': 'ajaxPedidoSearch',
+                'data': {
+                   f1: f1,
+                   f2: f2,
+                   tipo: tipo
+                },
             },
             async:'false',
             "info":    false,
@@ -226,11 +237,22 @@
                     }
                 },
             columns: [
-                { "data": "COD_ARTICULO" },
-                { "data": "ARTICULO" },
-                { "data": "CANTIDAD" },
-                { "data": "TT_PUNTOS" }
-            ]
+                { "data": "IDPEDIDO" },
+                { "data": "VENDEDOR" },
+                { "data": "RESPONSABLE" },
+                { "data": "CLIENTE" },
+                { "data": "NOMBRE" },
+                { "data": "FECHA" },
+                { "data": "MONTO" },
+                { "data": "ESTADO" },
+                { "data": "ICONO" },
+                { "data": "VER" }
+            ],
+            "fnInitComplete": function () {
+                    $('#tblPedidos').on( 'init.dt', function () {
+                        $('#loadPedido').hide();                     
+                    }).dataTable();
+                }
         });
     });
 </script>

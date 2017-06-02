@@ -7,7 +7,7 @@
     <div class="noMargen row TextColor center"><div class="col s12 m8 l12 offset-m1">PEDIDOS</div></div>
     
     <div class="noMargen Buscar row column">
-        <div class="input-field col s6 m2 l4 center offset-l2">
+        <div class="input-field col s12 m2 l3 center offset-l1">
             <input  id="searchDatos" type="text"class="validate">
             <label for="searchDatos">BUSCAR</label>
         </div>
@@ -19,9 +19,21 @@
             <input  id="fecha2" type="text"class="datepicker1">
             <label for="fecha2">FECHA 2</label>
         </div>
+        <div class="input-field col s5 l2 noMargen">
+            <select id = "selectBuscar">
+              <option value="7" selected>TODOS</option>
+              <option value="1">RECIBIDOS</option>
+              <option value="2">VISUALIZADOS</option>
+              <option value="3">PROCESADOS</option>
+              <option value="4">ANULADOS</option>
+            </select>
+          </div>
         <div class="input-field col s3 m3 l2">
-            <!--<a href="#" id="idBuscar"><i class="material-icons">search</i></a>-->
+            <a href="#" id="idBuscar"><i class="material-icons">search</i></a>
         </div>        
+    </div>
+    <div class="progress" id="loadPedido" style="display:none;">
+      <div class="indeterminate"></div>
     </div>
     
     
@@ -202,8 +214,25 @@
             </div>
         </div>
         <div class="row">
+            <div class="col s3 offset-s10 Mcolor valign-wrapper left">
+                    <p class="negra">TOTAL: </p>
+                <p id="total" class="bold breadcrumbs-title">0.00</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l12 Mcolor">
+                <p>OBSERVACIONES</p>
+            </div>
             <div class="col s12 m12 l12 Mcolor">
                 <textarea id="observaciones" disabled class="negra mayuscula materialize-textarea observaciones"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l12 Mcolor">
+                <p class = 'red-text'>COMENTARIO ANULACION</p>
+            </div>
+            <div class="col s12 m12 l12 Mcolor1">
+                <textarea id="anulacion" disabled class="negra mayuscula materialize-textarea observaciones1"></textarea>
             </div>
         </div>
         <div class="row center valign-wrapper">            
@@ -216,11 +245,7 @@
                         <a href="#" id="btnAnular" class="Procesar waves-effect btn red">anulacion</a>
                     </div>';
                 }
-            ?>
-          <div class="col s3 Mcolor valign-wrapper left">
-            <p class="negra">TOTAL: </p>
-            <p id="total" class="bold breadcrumbs-title">0.00</p>
-          </div>
+            ?>          
         </div>
     </div>
 </div>

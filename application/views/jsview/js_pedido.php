@@ -194,4 +194,43 @@
         var table = $('#tblPedidos').DataTable();
         table.columns(1).search($(this).val()).draw();
     });
+    $("#idBuscar").click(function(){
+        limpiarTabla(tblPedidos);
+        var form_data = {
+            frp: "ekisde"
+        };
+        
+
+        
+        $('#tblPedidos').DataTable({
+            ajax: "ajaxPedidoSearch",
+            "data" : {
+                "user_id": 451
+            },
+            async:'false',
+            "info":    false,
+                "bPaginate": false,
+                "paging": true,
+                "pagingType": "full_numbers",
+                "lengthMenu": [[10, -1], [10, "Todo"]],
+                "language": {
+                    "emptyTable": "No hay datos disponibles en la tabla",
+                    "lengthMenu": '_MENU_ ',
+                    "search": '<i class=" material-icons">search</i>',
+                    "loadingRecords": "",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Última ",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    }
+                },
+            columns: [
+                { "data": "COD_ARTICULO" },
+                { "data": "ARTICULO" },
+                { "data": "CANTIDAD" },
+                { "data": "TT_PUNTOS" }
+            ]
+        });
+    });
 </script>

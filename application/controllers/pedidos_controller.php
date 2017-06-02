@@ -55,7 +55,10 @@ class Pedidos_controller extends CI_Controller
     }
     public function ajaxPedidoSearch()
     {
-        $this->pedidos_model->ajaxPedidoSearch();
+        //$this->pedidos_model->ajaxPedidoSearch();
+        //echo "string";
+        echo $this->input->post('user_id');
+        echo $_POST['user_id'];
     }
 }
 ?>

@@ -33,7 +33,7 @@ class Pedidos_model extends CI_Model
 
             
             if ($update->num_rows() == 0) {
-                if ($this->session->userdata('RolUser') == '2') {
+                if ($this->session->userdata('RolUser') == '2' || $this->session->userdata('RolUser') == '3') {
 
                     $datos = array('ESTADO' => 2);
                     $this->db->update('pedido', $datos, array('IDPEDIDO' => $id));

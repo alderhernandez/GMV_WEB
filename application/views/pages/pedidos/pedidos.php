@@ -20,7 +20,7 @@
             <label for="fecha2">FECHA 2</label>
         </div>
         <div class="input-field col s3 m3 l2">
-            <a href="#" id="idBuscar"><i class="material-icons">search</i></a>
+            <!--<a href="#" id="idBuscar"><i class="material-icons">search</i></a>-->
         </div>        
     </div>
     

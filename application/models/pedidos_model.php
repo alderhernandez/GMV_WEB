@@ -123,6 +123,14 @@ class Pedidos_model extends CI_Model
             echo strtoupper($query->result_array()[0]['COMENTARIO']);
         }
     }
+    public function ajaxPedidoComenAnu($id)
+    {
+        $this->db->where('IDPEDIDO',$id);
+        $query = $this->db->get('anulaciones');
+        if ($query->num_rows()>0) {
+            echo strtoupper($query->result_array()[0]['COMENTARIO']);
+        }   
+    }
     public function ajaxAnulacion($idPedido,$comentario){
         if ($this->session->userdata('RolUser') == "2" || $this->session->userdata('RolUser') == "3") {
         $query = $this->db->query("UPDATE pedido SET ESTADO = '4' WHERE IDPEDIDO = '".$idPedido."'");
@@ -137,8 +145,87 @@ class Pedidos_model extends CI_Model
             echo $query;
         }
     }
-    public function ajaxPedidoSearch($f1,$f2)
+    public function ajaxPedidoSearch($f1 = "",$f2 = "", $tipo)
     {
-        
+        $json = array();
+        $i = 0;
+        $consulta = "SELECT * FROM pedido ";
+        if($tipo != '7'){
+            $consulta .= "WHERE ESTADO = '".$tipo."' ";
+        }if($f1 != '' && $f2 != ''){
+            $consulta .= "AND FECHA_CREADA BETWEEN '".date('Y-m-d',strtotime($f1))."' AND '".date('Y-m-d',strtotime($f2))."' ";
+        }
+        if ($this->session->userdata('RolUser')==2) {
+            $query = $this->db->query("SELECT RUTA FROM view_misRutas
+                                        WHERE IdResponsable = '".$this->session->userdata('id')."'");
+            if ($query->num_rows()>0) {
+                $consulta .= "AND VENDEDOR IN (".$query->result_array()[0]['RUTA'].")";
+            }
+        }
+        //echo $consulta;
+        $query = $this->db->query($consulta);        
+        if ($query->num_rows()>0) {
+            foreach($query->result_array() as $key){
+                switch ($key['ESTADO']) {
+                                        case '1':
+                                            $estado2 = '<i class="material-icons">check</i>';
+                                            break;
+                                        case '2':
+                                            $estado2 = '<i class="material-icons">done_all</i>';
+                                            break;
+                                        case '3':
+                                            $estado2 = '<i class="green-text material-icons">done_all</i>';
+                                            break;
+                                        case '4':
+                                            $estado2 = '<i class="red-text material-icons">done_all</i>';
+                                            break;
+                                        default:
+                                            $estado2 = 'ERROR AL OBTENER ESTADO';
+                                            break;
+                                    }
+                                    switch ($key['ESTADO']) {
+                                        case '1':
+                                            $estado = '<p class="noMargen">PENDIENTE</p>';
+                                            break;
+                                        case '2':
+                                            $estado = '<p class="noMargen">VISUALIZADO</p>';
+                                            break;
+                                        case '3':
+                                            $estado = '<p class="green-text noMargen">PROCESADO</p>';
+                                            break;
+                                        case '4':
+                                            $estado = '<p class="red-text noMargen">ANULADO</p>';
+                                            break;
+                                        default:
+                                            $estado = 'ERROR AL OBTENER ESTADO';
+                                            break;
+                                    }
+                $json['data'][$i]['IDPEDIDO'] = '<p class="negra noMargen">'.$key['IDPEDIDO'].'</p>';
+                $json['data'][$i]['VENDEDOR'] = $key['VENDEDOR'];                
+                $json['data'][$i]['RESPONSABLE'] = $key['RESPONSABLE'];
+                $json['data'][$i]['CLIENTE'] = $key['CLIENTE'];
+                $json['data'][$i]['NOMBRE'] = $key['NOMBRE'];
+                $json['data'][$i]['FECHA'] = $key['FECHA_CREADA'];
+                $json['data'][$i]['MONTO'] = number_format($key['MONTO'],4);
+                $json['data'][$i]['ESTADO'] = $estado;
+                $json['data'][$i]['ICONO'] = $estado2;
+                $json['data'][$i]['VER'] = "<a  onclick='getview(".'"'.$key['IDPEDIDO'].'"'.",".'"'.$key['NOMBRE']." ".$key['CLIENTE'].'"'.",".'"'.$key['VENDEDOR'].'"'.",".'"'.$key['ESTADO'].'"'.")' href='#' class='noHover'><i class='material-icons'>&#xE417;</i></a>";
+                $i++;
+            }    
+        }else{
+                $json['data'][$i]['IDPEDIDO'] = '-';
+                $json['data'][$i]['VENDEDOR'] = "-";
+                $json['data'][$i]['RESPONSABLE'] = "-";
+                $json['data'][$i]['CLIENTE'] = "-";
+                $json['data'][$i]['NOMBRE'] = "NO HAY DATOS";
+                $json['data'][$i]['FECHA'] = "-";
+                $json['data'][$i]['MONTO'] = "-";
+                $json['data'][$i]['ESTADO'] = "-";
+                $json['data'][$i]['ICONO'] = "-";
+                $json['data'][$i]['VER'] = "-";
+        }
+        //echo $consulta;
+        echo json_encode($json);
     }
+
 }

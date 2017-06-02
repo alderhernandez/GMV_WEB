@@ -539,7 +539,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 .Mcolor1
 {
     font-size: 14px;
-   text-align: center;
+    text-align: center;
     color: #6a4ad5;
     font-family: 'robotoblack';
 
@@ -1223,6 +1223,16 @@ label>select {
 }
 .observaciones{
     border: 1px solid #1F0A71!important;
+    box-shadow: none !important;
+    font-family: 'robotoregular'!important;
+    font-size: 12px!important;
+    color: #1F0A71!important;
+    font-weight: 500!important;
+    width: 98%!important;
+    padding: 10px!important;
+}
+.observaciones1{
+    border: 1px solid red!important;
     box-shadow: none !important;
     font-family: 'robotoregular'!important;
     font-size: 12px!important;

@@ -205,7 +205,7 @@
                 data: form_data,
                 success:
                 function(clsAplicados){
-                    swal("Procesado!", "El pedido ha sido marcado como anulado.", "success");
+                    swal("Anulado!", "El pedido ha sido marcado como anulado.", "success");
                     setInterval(function(){ $(location).attr('href',"pedidos"); }, 1400);                    
                     }
                 });

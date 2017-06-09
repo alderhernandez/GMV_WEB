@@ -200,9 +200,9 @@
                 <table id="TbDetalleFactura" class="TblDatos center">
                     <thead>
                         <tr>
-                            <th>ARTICULO.</th>
+                            <th>ARTICULO</th>
                             <th>DESCRIPCIÓN</th>
-                            <th>CANTIDAD.</th>
+                            <th>CANTIDAD</th>
                             <th>PRECIO</th>
                             <th>TOTAL</th>
                             <th>BONIFICADO</th>

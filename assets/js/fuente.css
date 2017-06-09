@@ -5,9 +5,9 @@
   font-weight: 400;
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
-       url(/visys2/assets/fonts/MaterialIcons-Regular.woff2) format('woff2'),
-       url(/visys2/assets/fonts/MaterialIcons-Regular.woff) format('woff'),
-       url(/visys2/assets/fonts/MaterialIcons-Regular.ttf) format('truetype');
+       url(/GMV_WEB/assets/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+       url(/GMV_WEB/assets/fonts/MaterialIcons-Regular.woff) format('woff'),
+       url(/GMV_WEB/assets/fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
 
 .material-icons {

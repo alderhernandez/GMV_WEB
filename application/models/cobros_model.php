@@ -42,6 +42,14 @@ class Cobros_model extends CI_Model
                 $json['data'][$i]['FECHA'] = $key['FECHA'];
                 $i++;
             }
+        }else{
+                $json['data'][$i]['IDCOBRO'] = '-';
+                $json['data'][$i]['CLIENTE'] = '-';
+                $json['data'][$i]['VENDEDOR'] = '-';
+                $json['data'][$i]['TOTAL'] = 'NO HAY RESULTADOS';
+                $json['data'][$i]['TIPOPAGO'] = '-';
+                $json['data'][$i]['OBSERVACION'] = '-';
+                $json['data'][$i]['FECHA'] = '-';
         }
         echo json_encode($json);
     }

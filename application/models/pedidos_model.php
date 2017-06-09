@@ -42,7 +42,7 @@ class Pedidos_model extends CI_Model
                         
             foreach($query->result_array() as $key){
                 $json['data'][$i]['ARTICULO'] = $key['ARTICULO'];
-                $json['data'][$i]['DESCRIPCION'] = '<p class="negra">'.$key['DESCRIPCION'].'</p>';
+                $json['data'][$i]['DESCRIPCION'] = '<p class="bold">'.$key['DESCRIPCION'].'</p>';
                 $json['data'][$i]['CANTIDAD'] = number_format($key['CANTIDAD'],0);
                 $json['data'][$i]['PRECIO'] = $key['TOTAL'];
                 $json['data'][$i]['TOTAL'] = number_format($key['CANTIDAD']*str_replace($rempla, '', $key['TOTAL']),2);
@@ -70,6 +70,7 @@ class Pedidos_model extends CI_Model
         $this->db->where('idPedido',$idPedido);
         $this->db->update('pedido',$data);
     }
+    
     public function pedidosPendientes(){
         if ($this->session->userdata('RolUser') == "2") {
             $query = $this->db->query("SELECT COUNT(IDPEDIDO) PENDIENTE, (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '3' 
@@ -144,6 +145,14 @@ class Pedidos_model extends CI_Model
         }
             echo $query;
         }
+    }
+    public function ajaxConfirmacion($idPedido,$comentario)
+    {
+        $datos = array('COMENTARIO_CONFIR' => $comentario,
+                        'ESTADO' => 3
+                    );
+        $query = $this->db->update('pedido',$datos);
+        echo $query;
     }
     public function ajaxPedidoSearch($f1 = "",$f2 = "", $tipo)
     {

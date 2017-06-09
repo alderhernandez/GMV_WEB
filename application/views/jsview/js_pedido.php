@@ -120,16 +120,46 @@
     $("#btnProcesar").click(function(){
         if ($("#codPedido").text().length>10 && $("#codPedido").text()!=""){
             swal({
-              title: "Esta seguro?",
-              text: "Se marcara el pedido como procesado!",
-              type: "warning",
+              title: "Se marcara el pedido como procesado!",
+              text: "Ingrese un comentario",
+              //type: "warning",
+              type: "input",
               showCancelButton: true,
               confirmButtonColor: "#DD6B55",
               confirmButtonText: "Procesar!",
               cancelButtonText: "Cancelar!",
               closeOnConfirm: false,
-              closeOnCancel: true
+              closeOnCancel: true,
+              animation: "slide-from-top",
+              inputPlaceholder: "Comentario"
             },
+            function(inputValue){
+              if (inputValue === false) return false;
+              
+              if (inputValue === "") {
+                swal.showInputError("Necesita escribir una razon!");
+                return false
+              }
+              swal("Procesado!", "Esperee..: " + inputValue, "success");
+              var form_data = {
+                    comentario: inputValue,
+                    idPedido: $("#codPedido").text()
+              };
+              $.ajax({
+                    url: "ajaxConfirmacion",
+                    type: "post",
+                    async:true,
+                    data: form_data,
+                    success:
+                    function(clsAplicados){
+                        swal("Procesado!", "El pedido ha sido marcado como procesado.", "success");
+                        setInterval(function(){ $(location).attr('href',"pedidos"); }, 1400);                    
+                        }
+                    });
+            });
+
+
+            /*,
             function(isConfirm){
               if (isConfirm) {
                 $.ajax({
@@ -143,7 +173,7 @@
                     }
                 });
               }
-            });
+            });*/
         }
     });
     $("#btnAnular").click(function(){

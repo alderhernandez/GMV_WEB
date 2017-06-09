@@ -57,6 +57,10 @@ class Pedidos_controller extends CI_Controller
     {
         $this->pedidos_model->ajaxAnulacion($this->input->post('idPedido'),$this->input->post('comentario'));
     }
+    public function ajaxConfirmacion()
+    {
+        $this->pedidos_model->ajaxConfirmacion($this->input->post('idPedido'),$this->input->post('comentario'));
+    }
     public function ajaxPedidoSearch()
     {
         $this->pedidos_model->ajaxPedidoSearch($_POST['f1'],$_POST['f2'],$_POST['tipo']);

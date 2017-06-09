@@ -58,7 +58,7 @@
                                     <td class='negra'>".$key['IDCOBRO']."</td>
                                     <td>".$key['CLIENTE']."</td>
                                     <td>".$key['RUTA']."</td>
-                                    <td>".$key['IMPORTE']."</td>
+                                    <td>".number_format($key['IMPORTE'],2)."</td>
                                     <td>".$key['TIPO']."</td>
                                     <td>".strtoupper($key['OBSERVACION'])."</td>
                                     <td>".date('d-m-Y H:i:s',strtotime($key['FECHA']))."</td>

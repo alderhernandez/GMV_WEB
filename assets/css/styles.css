@@ -1,48 +1,48 @@
 
 @font-face {
     font-family: 'robotoblack';
-    src: url('/VISYS2/assets/fonts/Robot/roboto-black-webfont.eot');
-    src: url('/VISYS2/assets/fonts/Robot/roboto-black-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/VISYS2/assets/fonts/Robot/roboto-black-webfont.woff2') format('woff2'),
-    url('/VISYS2/assets/fonts/Robot/roboto-black-webfont.woff') format('woff'),
-    url('/VISYS2/assets/fonts/Robot/roboto-black-webfont.ttf') format('truetype'),
-    url('/VISYS2/assets/fonts/Robot/roboto-black-webfont.svg#robotoblack') format('svg');
+    src: url('/GMV_WEB/assets/fonts/Robot/roboto-black-webfont.eot');
+    src: url('/GMV_WEB/assets/fonts/Robot/roboto-black-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-black-webfont.woff2') format('woff2'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-black-webfont.woff') format('woff'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-black-webfont.ttf') format('truetype'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-black-webfont.svg#robotoblack') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'robotobold';
-    src: url('/VISYS2/assets/fonts/Robot/roboto-bold-webfont.eot');
-    src: url('/VISYS2/assets/fonts/Robot/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/VISYS2/assets/fonts/Robot/roboto-bold-webfont.woff2') format('woff2'),
-    url('/VISYS2/assets/fonts/Robot/roboto-bold-webfont.woff') format('woff'),
-    url('/VISYS2/assets/fonts/Robot/roboto-bold-webfont.ttf') format('truetype'),
-    url('/VISYS2/assets/fonts/Robot/roboto-bold-webfont.svg#robotobold') format('svg');
+    src: url('/GMV_WEB/assets/fonts/Robot/roboto-bold-webfont.eot');
+    src: url('/GMV_WEB/assets/fonts/Robot/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-bold-webfont.woff2') format('woff2'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-bold-webfont.woff') format('woff'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-bold-webfont.ttf') format('truetype'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-bold-webfont.svg#robotobold') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'robotomedium';
-    src: url('/VISYS2/assets/fonts/Robot/roboto-medium-webfont.eot');
-    src: url('/VISYS2/assets/fonts/Robot/roboto-medium-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/VISYS2/assets/fonts/Robot/roboto-medium-webfont.woff2') format('woff2'),
-    url('/VISYS2/assets/fonts/Robot/roboto-medium-webfont.woff') format('woff'),
-    url('/VISYS2/assets/fonts/Robot/roboto-medium-webfont.ttf') format('truetype'),
-    url('/VISYS2/assets/fonts/Robot/roboto-medium-webfont.svg#robotomedium') format('svg');
+    src: url('/GMV_WEB/assets/fonts/Robot/roboto-medium-webfont.eot');
+    src: url('/GMV_WEB/assets/fonts/Robot/roboto-medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-medium-webfont.woff2') format('woff2'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-medium-webfont.woff') format('woff'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-medium-webfont.ttf') format('truetype'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-medium-webfont.svg#robotomedium') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'robotoregular';
-    src: url('/VISYS2/assets/fonts/Robot/roboto-regular-webfont.eot');
-    src: url('/VISYS2/assets/fonts/Robot/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/VISYS2/assets/fonts/Robot/roboto-regular-webfont.woff2') format('woff2'),
-    url('/VISYS2/assets/fonts/Robot/roboto-regular-webfont.woff') format('woff'),
-    url('/VISYS2/assets/fonts/Robot/roboto-regular-webfont.ttf') format('truetype'),
-    url('/VISYS2/assets/fonts/Robot/roboto-regular-webfont.svg#robotoregular') format('svg');
+    src: url('/GMV_WEB/assets/fonts/Robot/roboto-regular-webfont.eot');
+    src: url('/GMV_WEB/assets/fonts/Robot/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-regular-webfont.woff2') format('woff2'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-regular-webfont.woff') format('woff'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-regular-webfont.ttf') format('truetype'),
+    url('/GMV_WEB/assets/fonts/Robot/roboto-regular-webfont.svg#robotoregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -320,7 +320,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 #contenedorL{
     background-color: #263369;
-    /*background: url('/VISYS2/assets/img/fondo_login.jpg');*/
+    /*background: url('/GMV_WEB/assets/img/fondo_login.jpg');*/
 }
 #nombre{
     font-family: 'robotoblack';

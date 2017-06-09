@@ -4,7 +4,7 @@
 
 <main class="mdl-layout__content mdl-color--grey-100">
     <div class="mdl-grid demo-content">       
-        <div class="row TextColor center">INICIO</div>
+        
         		
     <div class="row">
         <div class="col s12 m6">
@@ -19,6 +19,15 @@
           <div class="card">
             <div class="card-content">
               <div id="container2" style="height: 300px"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m12">
+          <div class="card">
+            <div class="card-content">
+              <div id="container3" style="height: 300px"></div>
             </div>
           </div>
         </div>

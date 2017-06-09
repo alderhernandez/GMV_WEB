@@ -148,10 +148,13 @@ class Pedidos_model extends CI_Model
     }
     public function ajaxConfirmacion($idPedido,$comentario)
     {
-        $datos = array('COMENTARIO_CONFIR' => $comentario,
+        if ($this->session->userdata('RolUser') == "2" || $this->session->userdata('RolUser') == "3") {
+            $datos = array('COMENTARIO_CONFIR' => $comentario,
                         'ESTADO' => 3
                     );
-        $query = $this->db->update('pedido',$datos);
+            $this->db->where('IDPEDIDO',$idPedido);
+            $query = $this->db->update('pedido',$datos);
+        }
         echo $query;
     }
     public function ajaxPedidoSearch($f1 = "",$f2 = "", $tipo)

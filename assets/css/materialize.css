@@ -7658,10 +7658,9 @@ input[type=range]:focus::-ms-fill-upper {
   .picker__box {
     display: block;
     border: 1px solid #866FD5;
-   /* border-top-color: #898989;*/
+    border-bottom: 1px solid #866FD5;
     border-bottom-width: 0;
     border-radius: 5px 5px 0 0;
-   /* box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24);*/
   }
 }
 

@@ -38,7 +38,7 @@
             }
         },
         title: {
-            text: 'ESTADO DE PEDIDOS'
+            text: 'ESTADO DE PEDIDOS (ULTIMO MES)'
         },
         plotOptions: {
         pie: {
@@ -69,7 +69,7 @@
                 }
             },
             title: {
-                text: 'PEDIDOS POR VENDEDOR'
+                text: 'PEDIDOS POR VENDEDOR (ULTIMO MES)'
             },
             xAxis: {
                 categories: []

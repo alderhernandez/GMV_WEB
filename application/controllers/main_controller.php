@@ -21,4 +21,4 @@ class Main_controller extends CI_Controller
         $this->load->view('jsview/js_cobros');
     }
 }
- ?>
+?>

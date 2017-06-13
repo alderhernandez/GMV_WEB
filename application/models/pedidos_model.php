@@ -157,7 +157,8 @@ class Pedidos_model extends CI_Model
     {
         if ($this->session->userdata('RolUser') == "2" || $this->session->userdata('RolUser') == "3") {
             $datos = array('COMENTARIO_CONFIR' => $comentario,
-                        'ESTADO' => 3
+                        'ESTADO' => 3,
+                        'FECHA_ULTIMA_ACTUALIZACION' => date('Y-m-d H:i:s')
                     );
             $this->db->where('IDPEDIDO',$idPedido);
             $query = $this->db->update('pedido',$datos);

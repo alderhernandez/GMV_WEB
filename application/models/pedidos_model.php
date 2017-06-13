@@ -1,18 +1,24 @@
 <?php
 class Pedidos_model extends CI_Model
 {
+    public $rErick = "'F05','F09','F10','F11','F19','F20'";
+    public $rVeronica = "'F03','F06','F07','F08','F13','F14'";
     public function __construct(){
         parent::__construct();
         $this->load->database();
     }
     public function pedidos()
-    {        
+    {
         if ($this->session->userdata('RolUser')==2) {
             $query = $this->db->query("SELECT RUTA FROM view_misRutas
                                         WHERE IdResponsable = '".$this->session->userdata('id')."'");
             if ($query->num_rows()>0) {
                 $query = $this->db->query("SELECT * FROM pedido WHERE VENDEDOR IN (".$query->result_array()[0]['RUTA'].") ORDER BY ESTADO LIMIT 200");                
             }
+        }else if($this->session->userdata('RolUser') == 4 && $this->session->userdata('id') == 24){
+                $query = $this->db->query("SELECT * FROM pedido WHERE VENDEDOR IN (".$this->rErick.") ORDER BY ESTADO");
+        }else if($this->session->userdata('RolUser') == 4 && $this->session->userdata('id') == 17){
+                $query = $this->db->query("SELECT * FROM pedido WHERE VENDEDOR IN (".$this->rVeronica.") ORDER BY ESTADO");
         }else{
             $query = $this->db->get('pedido');
         }        
@@ -90,7 +96,8 @@ class Pedidos_model extends CI_Model
         $json = array();
         
         $query = $this->db->query("SELECT COUNT(IDPEDIDO) PENDIENTE, (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '3') PROCESADO,
-                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '2') VISUALIZADO FROM pedido WHERE ESTADO IN ('1', '2') ");
+                                    (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '2') VISUALIZADO FROM pedido WHERE ESTADO IN ('1', '2')
+                                    AND FECHA_CREADA BETWEEN  DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND CURDATE()");
         if ($query->num_rows()>0) {
                 $json[0][0] = "PENDIENTES";
                 $json[0][1] = intval($query->result_array()[0]['PENDIENTE']);
@@ -176,6 +183,12 @@ class Pedidos_model extends CI_Model
             if ($query->num_rows()>0) {
                 $consulta .= "AND VENDEDOR IN (".$query->result_array()[0]['RUTA'].")";
             }
+        }
+        if ($this->session->userdata('RolUser')==4 && $this->session->userdata('id') == 24) {
+            $consulta .= "AND VENDEDOR IN (".$this->rErick.")";
+        }
+        if ($this->session->userdata('RolUser')==4 && $this->session->userdata('id') == 17) {
+            $consulta .= "AND VENDEDOR IN (".$this->rVeronica.")";
         }
         //echo $consulta;
         $query = $this->db->query($consulta);        

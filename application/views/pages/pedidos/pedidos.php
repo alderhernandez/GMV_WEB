@@ -150,19 +150,19 @@
                     <tbody>
                         <tr>
                             <td><i class="material-icons">check</i></td>
-                            <td>PEDIDO RECIBIDO</td>
+                            <td>RECIBIDO</td>
                         </tr>
                         <tr>
                             <td><i class="material-icons">done_all</i></td>
-                            <td>PEDIDO VISUALIZADO</td>
+                            <td>VISUALIZADO</td>
                         </tr>
                         <tr>
                             <td><i class="green-text material-icons">done_all</i></td>
-                            <td>PEDIDO PROCESADO</td>
+                            <td>PROCESADO</td>
                         </tr>
                         <tr>                            
                             <td><i class="red-text material-icons">done_all</i></td>
-                            <td>PEDIDO ANULADO</td>
+                            <td>ANULADO</td>
                         </tr>                        
                     </tbody>
                 </table>

@@ -319,8 +319,8 @@ _:-ms-input-placeholder, :root .demo-graph {
     margin-top: 35px;
 }
 #contenedorL{
-    background-color: #263369;
-    /*background: url('/GMV_WEB/assets/img/fondo_login.jpg');*/
+    /*background-color: #263369;*/
+    background: url('/GMV_WEB/assets/img/hwebback2.png')  #263369;
 }
 #nombre{
     font-family: 'robotoblack';

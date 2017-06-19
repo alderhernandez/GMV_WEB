@@ -74,6 +74,10 @@
 #modalNuevoCatalogo{
   height: 80%!important;
 }
+#modalFiltrado{
+  min-height: 80%;
+  height: 80%;
+}
 .negra{
   font-family: 'robotoblack'!important;
 }

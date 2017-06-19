@@ -59,7 +59,8 @@ $route['carga'] = 'datos_controller';
 $route['subirPlan'] = 'datos_controller/subirPlan';
 
 // RUTA REPORTES
-$route['Reportes'] = 'reportes_controller';
+$route['reportes'] = 'reportes_controller';
+$route['pedidos_por_vendedor/(:any)/(:any)'] = 'reportes_controller/pedidos_por_vendedor/$1/$2';
 
 
 /*RUTAS DE DATOS*/
@@ -68,3 +69,5 @@ $route['datos'] = 'datos_controller/index';
 
 /*RUTAS MONITOREO*/
 $route['monitoreo'] = 'monitoreo_controller/index';
+
+

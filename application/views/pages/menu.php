@@ -44,6 +44,7 @@
                            <a href="agenda"><li href="agenda"><i class="material-icons">date_range</i> agenda</li></a>
                            <a href="pedidos"><li href="pedidos"><i class="material-icons">equalizer</i> pedidos</li></a>
                            <a href="cobros"><li href="cobros"><i class="material-icons">monetization_on</i> cobros</li></a>
+                           <a href="reportes"><li href="reportes"><i class="material-icons">insert_chart</i> reportes</li></a>
                            <a href="#modalOpciones" class="modal-trigger"><li href="#"><i class="material-icons">settings</i> opciones</li></a>
                            <a href="salir"><li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
                 break;

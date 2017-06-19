@@ -184,7 +184,7 @@
                     "info":false,
                     "order": [[ 1, "desc" ]],
                     "pagingType": "full_numbers",
-                    "lengthMenu": [[10, -1], [10, "Todo"]],
+                    "lengthMenu": [[25, -1], [25, "Todo"]],
                     "language": {
                         "emptyTable": "No hay datos disponibles en la tabla",
                         "lengthMenu": '_MENU_ ',
@@ -196,21 +196,10 @@
                             "next":       "Siguiente",
                             "previous":   "Anterior"
                         }
-                    },                    
+                    },
                     "fnInitComplete": function () {
                     $('#tblDetalleReportes').on( 'init.dt', function () {
-                        $('#loadIMG').hide();
-                        var totalAcumulado = 0;
-                        obj = $('#tblDetalleReportes').DataTable();
-                        obj.rows().data().each( function (index,value) {
-                            if (rutaGlobal=="masterClientes") {
-                               totalAcumulado += parseInt(obj.row(value).data().PUNTOS.replace(".000000",""));
-                            }
-                        });
-                        if (rutaGlobal=="masterClientes") {
-                            $("#Total2").show();
-                            $('#spanTotal').text(totalAcumulado);
-                        };                        
+                        $('#loadIMG').hide();                      
                     }).dataTable();
                     }
                 });

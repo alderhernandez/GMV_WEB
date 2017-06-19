@@ -66,7 +66,7 @@
                                     <td>".$key['CLIENTE']."</td>
                                     <td>".$key['NOMBRE']."</td>
                                     <td>".$key['FECHA_CREADA']."</td>
-                                    <td>".number_format($key['MONTO'],4)."</td>";
+                                    <td>".number_format($key['MONTO'],2)."</td>";
                                 switch ($key['ESTADO']) {
                                         case '1':
                                             $estado2 = '<i class="material-icons">check</i>';

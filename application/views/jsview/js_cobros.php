@@ -38,7 +38,7 @@
             }
         },
         title: {
-            text: 'ESTADO DE PEDIDOS (ULTIMO MES)'
+            text: 'ESTADO DE PEDIDOS (MES ACTUAL)'
         },
         plotOptions: {
         pie: {
@@ -69,7 +69,7 @@
                 }
             },
             title: {
-                text: 'PEDIDOS POR VENDEDOR (ULTIMO MES)'
+                text: 'PEDIDOS POR VENDEDOR (MES ACTUAL)'
             },
             xAxis: {
                 categories: []
@@ -90,6 +90,35 @@
             options2.xAxis.categories = json.name;
             options2.series[0].data = json.data;
             chart = new Highcharts.Chart(options2);
+        });
+        /***************************************/
+        var options3 = {
+            chart: {
+                type: 'area',
+                renderTo: 'container3'
+            },
+            title: {
+                text: 'PEDIDOS POR VENDEDOR (ULTIMO MES)'
+            },
+            xAxis: {
+                categories: []
+            },
+            yAxis: {
+                title: {
+                    text: 'NUMERO DE PEDIDOS'
+                }
+            },
+            series: [{
+                colorByPoint: true,
+                data: [],
+                name: 'CANTIDAD',
+                showInLegend: false
+            }]
+        }
+        $.getJSON("ajaxGraficaLogaritmica", function(json) {
+            options3.xAxis.categories = json.name;
+            options3.series[0].data = json.data;
+            chart = new Highcharts.Chart(options3);
         });
 	});
 

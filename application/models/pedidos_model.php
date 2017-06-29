@@ -95,9 +95,12 @@ class Pedidos_model extends CI_Model
     {
         $json = array();
         
-        $query = $this->db->query("SELECT COUNT(IDPEDIDO) PENDIENTE, (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '3') PROCESADO,
-                                    (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '2') VISUALIZADO FROM pedido WHERE ESTADO IN ('1', '2')
-                                    AND FECHA_CREADA BETWEEN  DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND CURDATE()");
+        $query = $this->db->query("SELECT COUNT(IDPEDIDO) PENDIENTE, 
+                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '3' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND CURDATE()) PROCESADO,
+                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '2' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND CURDATE()) VISUALIZADO,
+                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '4' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND CURDATE()) ANULADO 
+                                FROM pedido WHERE ESTADO IN ('1', '2')
+                                AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND CURDATE()");
         if ($query->num_rows()>0) {
                 $json[0][0] = "PENDIENTES";
                 $json[0][1] = intval($query->result_array()[0]['PENDIENTE']);
@@ -105,6 +108,8 @@ class Pedidos_model extends CI_Model
                 $json[1][1] = intval($query->result_array()[0]['PROCESADO']);
                 $json[2][0] = "VISUALIZADOS";
                 $json[2][1] = intval($query->result_array()[0]['VISUALIZADO']);
+                $json[3][0] = "ANULADOS";
+                $json[3][1] = intval($query->result_array()[0]['ANULADO']);
         }
         echo json_encode($json);
     }
@@ -121,6 +126,22 @@ class Pedidos_model extends CI_Model
                 $i++;
             }
         }
+        echo json_encode($json);
+    }
+    public function ajaxGraficaLogaritmica()
+    {
+     $json = array();
+        $i = 0;
+        $query = $this->db->query("CALL sp_Grafica_Pedido_Vendedor()");
+        if($query->num_rows()>0){
+            foreach ($query->result_array() as $key) {
+                $json['name'][0][] = $query->result_array()[$i]['RUTA'];
+                $json['data'][0][] = intval($query->result_array()[$i]['CANTIDAD']);
+
+                $i++;
+            }
+        }
+        
         echo json_encode($json);
     }
     public function ajaxPedidoComen($id)

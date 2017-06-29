@@ -44,6 +44,11 @@ class Pedidos_controller extends CI_Controller
     {
         $this->pedidos_model->ajaxGraficaColum();
     }
+
+    public function ajaxGraficaLogaritmica()
+    {
+        $this->pedidos_model->ajaxGraficaLogaritmica();
+    }
     public function ajaxPedidoComen($id)
     {
         $this->pedidos_model->ajaxPedidoComen($id);

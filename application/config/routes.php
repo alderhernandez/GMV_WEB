@@ -16,6 +16,8 @@ $route['cambiarPass'] = 'login_controller/cambiarPass';
 $route['Main'] = 'main_controller';
 $route['ajaxGrafica']='pedidos_controller/ajaxGrafica';
 $route['ajaxGraficaColum']='pedidos_controller/ajaxGraficaColum';
+$route['ajaxGraficaLogaritmica']='pedidos_controller/ajaxGraficaLogaritmica';
+
 
 /* PEDIDOS */
 $route['pedidos'] = 'pedidos_controller';

@@ -23,7 +23,7 @@ class Reportes_model extends CI_Model
                                             COUNT(CASE WHEN MONTH(FECHA_CREADA)=11 THEN IDPEDIDO END)  AS NOV,
                                             COUNT(CASE WHEN MONTH(FECHA_CREADA)=12 THEN IDPEDIDO END)  AS DIC
                                             FROM pedido
-                                            WHERE FECHA_CREADA BETWEEN '".$fecha1."' AND '".$fecha2."'
+                                            WHERE FECHA_CREADA BETWEEN '".$fecha1."' AND '".$fecha2." 23:59:59'
                                             GROUP BY VENDEDOR");
                                    
         //echo $fecha1;

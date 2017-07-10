@@ -20,6 +20,7 @@ class Pedidos_model extends CI_Model
         }else if($this->session->userdata('RolUser') == 4 && $this->session->userdata('id') == 17){
                 $query = $this->db->query("SELECT * FROM pedido WHERE VENDEDOR IN (".$this->rVeronica.") ORDER BY ESTADO");
         }else{
+            $this->db->limit(500);
             $query = $this->db->get('pedido');
         }        
         if ($query->num_rows()>0) {
@@ -96,11 +97,12 @@ class Pedidos_model extends CI_Model
         $json = array();
         
         $query = $this->db->query("SELECT COUNT(IDPEDIDO) PENDIENTE, 
-                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '3' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND CURDATE()) PROCESADO,
-                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '2' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND CURDATE()) VISUALIZADO,
-                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '4' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND CURDATE()) ANULADO 
+                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '3' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND DATE_FORMAT(CONCAT(CURDATE(),' 23:59:59'),'%Y/%m/%d %H:%i:%s')) PROCESADO,
+                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '2' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND DATE_FORMAT(CONCAT(CURDATE(),' 23:59:59'),'%Y/%m/%d %H:%i:%s')) VISUALIZADO,
+                                (SELECT COUNT(IDPEDIDO) FROM PEDIDO WHERE ESTADO = '4' AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND DATE_FORMAT(CONCAT(CURDATE(),' 23:59:59'),'%Y/%m/%d %H:%i:%s')) ANULADO 
                                 FROM pedido WHERE ESTADO IN ('1', '2')
-                                AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND CURDATE()");
+                                AND FECHA_CREADA BETWEEN  SUBDATE(CURDATE(), DAYOFMONTH(CURDATE()) - 1) AND DATE_FORMAT(CONCAT(CURDATE(),' 23:59:59'),'%Y/%m/%d %H:%i:%s')");
+
         if ($query->num_rows()>0) {
                 $json[0][0] = "PENDIENTES";
                 $json[0][1] = intval($query->result_array()[0]['PENDIENTE']);
